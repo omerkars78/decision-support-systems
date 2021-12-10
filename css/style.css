@@ -7,7 +7,7 @@ button {
     width: 150px;
     height: 70px;
     border-radius: 15px;
-    margin: 15px;
+    margin: 15px 15px 15px 30px;
     background-color: #008000;
     border: 0.25em white;
     box-shadow: 1px 0.5rem 0.5rem rgb(0, 0, 0)
@@ -32,7 +32,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     background-color:#38b000;
-    width: 197px;
+    width: 50%;
     height: 100vh;
 }
 .anasayfa_main_container .menu_bar_tutucu .logo {
@@ -46,6 +46,7 @@ button:hover {
 }
 .anasayfa_main_container .menu_bar_tutucu .logo .logo_foto {
     width: 180px;
+    margin-left: 15px;
     height: 70px;
 }
 
