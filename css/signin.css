@@ -1,0 +1,175 @@
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap'); */
+
+:root{
+  --color-white:#f3f3f3;
+  --color-gradient:linear-gradient(#008000,#38b000);
+  --color-gradient-dark: rgba(0,0,0,0.25);
+  --color-button: linear-gradient(200deg,#008000,#38b000);
+}
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box; 
+ }
+body{
+  font-family:'Times New Roman', Times, serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-white);
+  margin:0;
+}
+/*Mobil dostu olması için background-attachment: fixed; kullan.*/
+
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background:var(--color-gradient);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1{
+  font-weight:400;
+  line-height:1.2;
+}
+p{
+  font-size: 1.125rem;
+}
+
+h1,
+p{
+  margin-top:0;
+  margin-bottom:0.5rem;
+}
+a{
+    color: white;
+    font-style: italic;
+}
+label{
+  display:flex;
+  align-items:center;
+  margin-bottom:0.5rem;
+}
+input,
+button,
+select,
+textarea{
+  margin:0;
+  font-family:inherit;
+  font-size:inherit;
+  line-height:inherit;
+} 
+
+button{
+  border:none;
+
+}
+
+#container{
+  width:100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width:576px){
+  #container{
+    max-width:540px;
+  }
+}
+header{
+  padding: 0 0.625rem;
+}
+#description{
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
+
+#title{
+  text-align: center;
+}
+
+/* Form Kısmı */
+
+form{
+  background: var(--color-gradient-dark);
+  padding: 2.5rem 0.625rem;
+  border-radius: 1rem;
+	backdrop-filter:blur(20px);
+    margin-top: 70px;
+}
+@media (min-width: 480px){
+  form{
+    padding: 2.5rem;
+  }
+}
+#form-group{
+  margin: 0 auto 0.625rem auto;
+  padding: 0.25rem;
+}
+
+.form-control{
+  display:block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border:none;
+  border-radius: 0.4rem;
+}
+
+
+.submit-button{
+  display: block;
+  position: static;
+  background: var(--color-button);
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  margin: auto;
+  width: 150px;
+  height: 50px;
+ cursor:pointer;
+	transition: padding, font-size 1s;
+		backdrop-filter:blur(20px); 
+}
+
+/* .submit-button:hover{
+	font-size: 2rem;
+	padding:20px;
+	background: linear-gradient(210deg,#008000,#38b000);
+
+	
+} */
+.logo_foto{
+display:block;
+  width: 538px;
+  height: 80px;
+  border-radius: 0.75rem;
+}
+.oturum_ac {
+    align-items: center;
+}
+.oturum_ac_text{
+    margin-left: 120px;
+    font-size: 50px;
+}
+.kayit_ol {
+    align-items: center;
+}
+.kayit_ol_text{
+    margin-left: 145px;
+    font-size: 50px;
+}
+.uye_yazi {
+  margin-left: 115px;
+}

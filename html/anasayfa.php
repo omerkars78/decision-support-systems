@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <title>Anasayfa</title>
+    <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -20,22 +21,28 @@
             </div>
 
             <button class="anasayfa">
-                <a href="anasayfa.html">Anasayfa</a>
+  
+                <a href="anasayfa.php"><i class="fas fa-home"> </i> Anasayfa</a>
             </button>
             <button class="siparis">
-                <a href="kds_siparis.html">Sipariş</a>
+              
+                <a href="kds_siparis.php"><i class="fas fa-shopping-cart"> </i> Sipariş</a>
             </button>
             <button class="kesimhane">
-                <a href="kds_kesimhane.html">Kesimhane</a>
+                <a href="kds_kesimhane.php"><i class="fas fa-cut"> </i> Kesimhane</a>
             </button>
             <button class="makine_dikim">
-                <a href="kds_makine_dikim.html">Makine Dikim</a>
+                
+                <a href="kds_makine_dikim.php"><i class="fas fa-tshirt"> </i> Makine Dikim</a>
             </button>
             <button class="kalite_kontrol">
-                <a href="kds_kalite_kontrol.html">Kalite Kontrol</a>
+                <a href="kds_kalite_kontrol.php"><i class="fas fa-thumbs-up"> </i> Kalite Kontrol</a>
             </button>
             <button class="performans">
-                <a href="kds_performans.html">Performans</a>
+                <a href="kds_performans.php"><i class="fas fa-chart-line"> </i> Performans</a>
+            </button>
+            <button class="oturum_kapat">
+                <a href="signin_1.php"><i class="fas fa-sign-out-alt"></i> Oturum Kapat</a>
             </button>
 
         </div>
@@ -74,7 +81,7 @@
             
             <div class="genel_bilgi_container">
                 
-                <div id="first_box">
+                <div id="first_box" >
 
                 
                 </div>
@@ -87,9 +94,17 @@
                 <div id="thirth_box">
                     
                 </div>
-            
+            </div>
+        
+        <div class="genel_bilgi_container_2">  
+            <div id="fourth_box">
+                
             </div>
 
+            <div id="fifth_box">
+                
+            </div>
+        </div>  
 
         </div>
 
