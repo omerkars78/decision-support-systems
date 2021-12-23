@@ -55,14 +55,8 @@
 
                           
                 <div class="first_box_makina">
-                    <div><p class="ilgili_makina">İlgili Makinayı Seçiniz</p></div>
-                        <div class="makina_dropdown">
-                            <select class="secenek">
-                                <option value="tesla">Tesla</option>
-                                <option value="volvo">Volvo</option>
-                                <option value="mercedes">Mercedes</option>
-                            </select">
-                        </div>
+                    
+                 
                     
                 </div>
 

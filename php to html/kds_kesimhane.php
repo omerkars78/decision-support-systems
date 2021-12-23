@@ -2,7 +2,6 @@
 error_reporting(0);
 ?>
 <?php
-
 include("../php/baglanti.php");
 ?>
 
@@ -18,6 +17,7 @@ include("../php/baglanti.php");
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" ></script>
     <style>
         table {
             border: 1px solid black;
@@ -66,24 +66,40 @@ include("../php/baglanti.php");
             margin-left: 50px;
         }
         .box-2{
-            width: 500px;
+            width: 800px;
             height: 500px;
             align-items: center;
         }
         .activity-card{
-            width: 500px;
+            width: 800px;
             height: 500px;
             align-items: center;
         }
         .box-1{
-            width: 500px;
+            width: 800px;
             height: 500px;
             align-items: center;
         }
         .chart #myChart {
-            width: 500px;
+            width: 800px;
             height: 500px;
             align-items: center;
+        }
+        .genel_bilgi_container_kesimhane_2 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f0f0f5;
+        }
+        p {
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 1.2rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        #kesimhane_bilgileri {
+            margin-left: 320px;
         }
     </style>
     <title>Anasayfa</title>
@@ -132,7 +148,7 @@ include("../php/baglanti.php");
 
                 <div id="kesimhane_first_box">
                     <div class="siparis_bilgileri">
-                        <p>Kesimhane Bilgileri</p>
+                        <p id="kesimhane_bilgileri">Kesimhane Bilgileri</p>
                     </div>
                     <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
                         <tr>
@@ -205,9 +221,11 @@ include("../php/baglanti.php");
                         <?php
                         $siparisler = [];
                         $sql = "SELECT siparis.siparis_id, ((kesimhane.cikan_parca)-(siparis.istenen_parca)) as kesim_farki
-                  FROM siparis , kesimhane 
-                  WHERE siparis.siparis_id = kesimhane.siparis_id
-                  ;";
+                        FROM siparis , kesimhane 
+                        WHERE siparis.siparis_id = kesimhane.siparis_id;
+                        ";
+                        
+                     
                         $result = $con->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -232,7 +250,7 @@ include("../php/baglanti.php");
                                     ?>
                                 ],
                                 datasets: [{
-                                    label: 'My First Dataset',
+                                    label: 'Kesim Farkları',
                                     data: [
                                         <?php
                                         foreach ($kesim_farki as $key => $value) {
