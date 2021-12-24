@@ -7,7 +7,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
-    <title>Anasayfa</title>
+    <style>
+        table {
+                border: 1px solid black;
+                width: 500px;
+                height: 350px;
+            }
+            th {
+                border: 1px solid black;
+            }
+            tr {
+                border: 1px solid black;
+                background-color: #ffffff;
+            }
+            td {
+                border: 1px solid black;
+                background-color: #ffffff;
+            }
+        .anasayfa_main_container .content_container .genel_bilgi_container_makina_1 {
+            display: flex;
+            flex-direction: row;
+            width: 1310px;
+            height: 100%;
+            margin: 5px;
+            background-color: #f0f0f5;
+        }
+
+        .anasayfa_main_container .content_container .genel_bilgi_container_makina_2 {
+            display: flex;
+            flex-direction: row;
+            width: 1310px;
+            height: 100%;
+            margin: 5px;
+            background-color: #f0f0f5;
+            align-items: center;
+        }
+
+        .anasayfa_main_container .content_container .genel_bilgi_container_makina_1 .first_box_makina {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            height: 350px;
+            border-radius: 15px;
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+            overflow-y: scroll;
+
+        }
+        .anasayfa_main_container .content_container .genel_bilgi_container_makina_1 .second_box_makina {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 550px;
+            height: 350px;
+            border-radius: 15px;
+            margin-left: 370px;
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+            overflow-y: scroll;
+
+        }
+
+
+        .anasayfa_main_container .content_container .genel_bilgi_container_makina_2 #thirth_box_makina {
+            display: flex;
+            flex-direction: column;
+            width: 950px;
+            height: 350px;
+            border-radius: 15px;
+            margin-left: 175px;
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+
+        }
+        .makina_bilgileri {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin-bottom: 20px;
+            margin-top: 20px;
+}
+        #makina_igne_bilgileri {
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 800;
+        }
+    </style>
+    <title>Makina Dikim</title>
 </head>
 
 <body>
@@ -43,39 +130,83 @@
 
         </div>
         <div class="content_container">
-            
+
             <div class="ust_bar">
 
             </div>
 
-           
-            <div class="genel_bilgi_container_1">
-                
+
+            <div class="genel_bilgi_container_makina_1">
 
 
-                          
+
+
                 <div class="first_box_makina">
-                    
-                 
-                    
-                </div>
+                    <div class="makina_bilgileri">
+                        <p id="makina_igne_bilgileri">Makina İğne Bilgileri</p>
+                    </div>
+                    <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
+                        <tr>
+                            <th>Makina ID</th>
+                            <th>Makina Türü</th>
+                            <th>İğne Türü </th>
+                            <th>İğne Boyutu</th>
+                        </tr>
 
- 
-            
-            </div>
+                        <?php
+                        include("../php/baglanti.php");
 
-            <div class="genel_bilgi_container_2">  
-                <div id="makina_second_box">
-                    
-                </div>
+                        if ($con) {
+                            $query = mysqli_query($con, "SELECT makina.makina_id , makina.makina_turu ,igne.igne_turu , igne.igne_boyutu 
+                            FROM makina,igne,makina_igne
+                            WHERE makina.makina_id=makina_igne.makina_id AND igne.igne_id = makina_igne.igne_id;");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($rows = mysqli_fetch_array($query)) { ?>
+                                    <tr bgcolor='#ffffff'>
+                                        <td height="41" align="center"><?php echo $rows['makina_id'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['makina_turu'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['igne_turu'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['igne_boyutu'] ?></td>
     
 
-            </div> 
+                                    </tr>
+
+
+                        <?php
+
+                                }
+                            } else {
+                                echo "<h1>Veri Bulunamadı</h1>";
+                            }
+                        } else {
+                            echo "<h1>Bağlantı Başarısız</h1>";
+                        }
+                        ?>
+                    </table>
+
+
+
+                </div>
+                
+                <div class="second_box_makina">
+
+                </div>
+
+
+            </div>
+
+            <div class="genel_bilgi_container_makina_2">
+                <div id="thirth_box_makina">
+
+                </div>
+
+
+            </div>
 
 
         </div>
 
-        </div>
+    </div>
     </div>
 </body>
 
