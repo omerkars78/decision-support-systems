@@ -24,16 +24,24 @@
                 border: 1px solid black;
                 background-color: #ffffff;
             }
-        .anasayfa_main_container .content_container .genel_bilgi_container_makina_1 {
+        .genel_bilgi_container_makina_1 {
             display: flex;
             flex-direction: row;
             width: 1310px;
             height: 100%;
-            margin: 5px;
             background-color: #f0f0f5;
+            
+        }
+        .bir {
+            display: flex;
+            flex-direction: row;
+            width: 655px;
+            height: 100%;
+            background-color: #f0f0f5;
+            align-items: center;
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_makina_2 {
+         .genel_bilgi_container_makina_2 {
             display: flex;
             flex-direction: row;
             width: 1310px;
@@ -43,29 +51,31 @@
             align-items: center;
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_makina_1 .first_box_makina {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 150px;
-            height: 350px;
-            border-radius: 15px;
-            background-color: #cdcdcd;
-            box-shadow: 0.5px 0.15rem 0.25rem #000;
-            overflow-y: scroll;
-
-        }
-        .anasayfa_main_container .content_container .genel_bilgi_container_makina_1 .second_box_makina {
+        .first_box_makina {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 550px;
             height: 350px;
             border-radius: 15px;
-            margin-left: 370px;
+            margin-left: 30px;
             background-color: #cdcdcd;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
             overflow-y: scroll;
+
+        }
+        .second_box_makina {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 550px;
+            height: 350px;
+            margin-left:10px;
+            border-radius: 15px;
+            
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+            /* overflow-y: scroll; */
 
         }
 
@@ -92,6 +102,12 @@
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
             font-weight: 800;
+        }
+        #ariza {
+            display: flex;
+            width: 500px;
+            height: 500px;
+            margin-top: 50px;
         }
     </style>
     <title>Makina Dikim</title>
@@ -140,8 +156,8 @@
 
 
 
-
-                <div class="first_box_makina">
+                <div class="bir">
+                <div class="first_box_makina" style="margin-left:30px;width:590px;">
                     <div class="makina_bilgileri">
                         <p id="makina_igne_bilgileri">Makina İğne Bilgileri</p>
                     </div>
@@ -187,9 +203,57 @@
 
 
                 </div>
+            </div>
                 
                 <div class="second_box_makina">
+                
+                    <div class="makina_bilgileri">
+                        <p id="makina_igne_bilgileri">Makina Arıza Bilgileri</p>
+                    </div>
+                    <table id="ariza"  bordercolor="black" border="1">
+                        <tr>
+                            <th>Makina ID</th>
+                            <th>Makina Türü</th>
+                            <th>Arıza Türü </th>
+                            <th>Ortalama Arıza Süresi(dk)</th>
+                            <th>Arıza Sıklığı</th>
+                        </tr>
 
+                        <?php
+                        include("../php/baglanti.php");
+
+                        if ($con) {
+                            $query = mysqli_query($con, "SELECT makina.makina_id , makina.makina_turu ,ariza.ariza_turu,round(AVG(ariza.ariza_suresi)) as ortalama_ariza_suresi , COUNT(ariza.ariza_turu) as ariza_sikligi
+                            FROM makina , ariza 
+                            WHERE makina.makina_id = ariza.makina_id 
+                            GROUP BY ariza.ariza_turu;");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($rows = mysqli_fetch_array($query)) { ?>
+                                    <tr bgcolor='#ffffff'>
+                                        <td height="41" align="center"><?php echo $rows['makina_id'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['makina_turu'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['ariza_turu'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['ortalama_ariza_suresi'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['ariza_sikligi'] ?></td>
+
+                                    </tr>
+
+
+                        <?php
+
+                                }
+                            } else {
+                                echo "<h1>Veri Bulunamadı</h1>";
+                            }
+                        } else {
+                            echo "<h1>Bağlantı Başarısız</h1>";
+                        }
+                        ?>
+                    </table>
+
+
+
+                </div>
                 </div>
 
 
