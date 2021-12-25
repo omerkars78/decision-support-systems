@@ -183,5 +183,52 @@ include("../php/baglanti.php") ?>
           </div>
             </div>
 </body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                <?php
 
+                include("../php/baglanti.php");
+                ?>
+                google.charts.load('current', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['ariza_turu', 'ariza_sikligi'],
+                        <?php
+                        require_once("baglanti.php");
+                        if ($con) {
+                            $sql = "SELECT ariza.ariza_turu, COUNT(ariza.ariza_turu) as ariza_sikligi
+                            FROM makina , ariza 
+                            WHERE makina.makina_id = ariza.makina_id 
+                            GROUP BY ariza.ariza_turu;";
+                            $result = mysqli_query($con, $sql);
+                            $rowResult = mysqli_fetch_array($result);
+
+                            $chart_data = "";
+                            while ($row = mysqli_fetch_array($result)) {
+
+                                echo "['" . $row["ariza_turu"] . "'," . $row["ariza_sikligi"] . "],";
+                            }
+                        } else {
+                            echo "<h1>Bağlantı başarısız.</h1>";
+                        }
+                        ?>
+                    ]);
+
+
+
+
+                    var options = {
+                        title: 'Arızaların Ortalama Tamir Süresi',
+                        is3D: true,
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('pie'));
+
+                    chart.draw(data, options);
+                }
+            </script>
 </html>
