@@ -444,6 +444,7 @@ include("../php/baglanti.php");
                                         echo $value . ",";
                                     }
                                     ?>
+                                   
                                 ],
                                 backgroundColor: [
                                     'rgb(255, 99, 132)',

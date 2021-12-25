@@ -368,7 +368,7 @@ box-shadow: none;
 .anasayfa_main_container .content_container .genel_bilgi_container_kalite .first_box_kalite {
     display: flex;
     flex-direction: column;
-    width: 1100px;
+    width: 600px;
     height: 450px;
     border-radius: 15px;
     margin-left: 100px;
