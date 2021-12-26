@@ -100,6 +100,7 @@ include("../php/baglanti.php");
             background-color: #cdcdcd;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
         }
+
         .box-2 {
             width: 500px;
             height: 500px;
@@ -109,9 +110,22 @@ include("../php/baglanti.php");
             width: 500px;
             height: 500px;
         }
+
         .chart #myChart {
             width: 500px;
             height: 300px;
+        }
+
+        .fourth_box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 600px;
+            height: 450px;
+            border-radius: 15px;
+            margin-left: 50px;
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
         }
     </style>
     <title>Kalite Kontrol</title>
@@ -268,77 +282,162 @@ include("../php/baglanti.php");
                                 <canvas id="myChart"></canvas>
                             </div>
                             <?php
-                    $kalite_kontrol = [];
-                    $sql = "SELECT siparis.siparis_id, round((kalite_kontrol.saglam_adet / siparis.siparis_adeti)*100,2) as saglam_yuzde , 
+                            $kalite_kontrol = [];
+                            $sql = "SELECT siparis.siparis_id, round((kalite_kontrol.saglam_adet / siparis.siparis_adeti)*100,2) as saglam_yuzde , 
                     round((kalite_kontrol.defolu_adet / siparis.siparis_adeti)*100,2) as defolu_yuzde , 
                     round((kalite_kontrol.tamir_adet / siparis.siparis_adeti)*100,2) as tamir_yuzde
                     FROM 
                     siparis , kalite_kontrol 
                     WHERE siparis.siparis_id = kalite_kontrol.siparis_id
                     GROUP BY siparis.siparis_id;";
-                    $result = $con->query($sql);
+                            $result = $con->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while ($row = $result->fetch_assoc()) {
-                            $kalite_kontrol[$row["siparis_id"]] += $row["saglam_yuzde"];
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-                    $con->close();
-
-
-                    ?>
-                    <script>
-                        const data = {
-                            labels: [
-                                <?php
-                                foreach ($kalite_kontrol as $key => $value) {
-                                    echo "'" . $key . "',";
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    $kalite_kontrol[$row["siparis_id"]] += $row["saglam_yuzde"];
                                 }
-                                ?>
-                            ],
-                            datasets: [{
-                                label: 'Kalite Kontrol Grafiği',
-                                data: [
-                                    <?php
-                                    foreach ($kalite_kontrol as $key => $value) {
-                                        echo $value . ",";
-                                    }
-                                    ?>
-                                   
-                                ],
-                                backgroundColor: [
-                                    'rgb(255, 99, 132)',
-                                    'rgb(54, 162, 235)',
-                                    'rgb(255, 205, 21)',
-                                    'rgb(210, 0, 120)',
-                                    'rgb(210, 98, 120)',
-                                ],
-                                hoverOffset: 4
-                            }]
-                        };
-
-                        const config = {
-                            type: 'bar',
-                            data: data,
-                        };
+                            } else {
+                                echo "0 results";
+                            }
+                            $con->close();
 
 
-                        const ctx = document.getElementById('myChart');
-                        const myChart = new Chart(ctx, config);
-                    </script>
+                            ?>
+                            <script>
+                                const data = {
+                                    labels: [
+                                        <?php
+                                        foreach ($kalite_kontrol as $key => $value) {
+                                            echo "'" . $key . "',";
+                                        }
+                                        ?>
+                                    ],
+                                    datasets: [{
+                                        label: 'Kalite Kontrol Grafiği',
+                                        data: [
+                                            <?php
+                                            foreach ($kalite_kontrol as $key => $value) {
+                                                echo "'" . $value . "',";   // echo $value . ",";
+                                            }
+                                            ?>
+
+                                        ],
+                                        backgroundColor: [
+                                            'rgb(255, 99, 132)',
+                                            'rgb(54, 162, 235)',
+                                            'rgb(255, 205, 21)',
+                                            'rgb(210, 0, 120)',
+                                            'rgb(210, 98, 120)',
+                                        ],
+                                        hoverOffset: 4
+                                    }]
+                                };
+
+                                const config = {
+                                    type: 'line',
+                                    data: data,
+                                };
+
+
+                                const ctx = document.getElementById('myChart');
+                                const myChart = new Chart(ctx, config);
+                            </script>
 
                         </div>
 
 
                     </div>
                 </div>
+                <div class="fourth_box">
+                    <form action="" method="post" id="survey-form">
+                        
+                        <div class="kayit_ol">
+                            <p class="kayit_ol_text">Güncelleme Yap</p>
+                        </div>
+                        
+                        <div id="form-group">
+                            <label id="email-label" for="email">Kalite ID: </label>
+                            <input class="form-control" type="number" name="kalite" id="kalite" required placeholder="Kalite İd Giriniz">
+                        </div>
+                        
+                        <div id="form-group">
+                            <label id="password-label" for="password">Sipariş ID: </label>
+                            <input class="form-control" type="number" name="siparis" id="siparis" required placeholder="Sipariş İd Giriniz">
+                        </div>
+                        
+                        <div id="form-group">
+                            <label id="password-label" for="password">Sağlam Adeti: </label>
+                            <input class="form-control" type="number" name="saglam" id="saglam" required placeholder="Sağlam Adeti Giriniz">
+                        </div>
+                        
+                        <div id="form-group">
+                            <label id="password-label" for="password">Defolu Adeti: </label>
+                            <input class="form-control" type="number" name="defolu" id="defolu" required placeholder="Defolu Adeti Giriniz">
+                        </div>
+                        
+                        <div id="form-group">
+                            <label id="password-label" for="password">Tamir Adeti: </label>
+                            <input class="form-control" type="number" name="tamir" id="tamir" required placeholder="Tamir Adeti Giriniz">
+                        </div>
+
+                        <div id="form-group">
+                            <button id="submit" class="submit-button" type="submit" name="submit" value="Register">
+                                Güncelle
+                        </div>
+
+                    </form>
+                </div>
             </div>
+
+
         </div>
     </div>
     </div>
+
+    <?php
+    require('../php/baglanti.php');
+    // Form gönderildiğinde, değerleri veritabanına ekleyin.
+    if (isset($_REQUEST['kalite'])) {
+        // ters eğik çizgileri kaldırır
+        $kalite = stripslashes($_REQUEST['kalite']);
+        //bir dizedeki özel karakterlerden kaçar
+        $kalite = mysqli_real_escape_string($con, $kalite);
+       
+        $siparis = stripslashes($_REQUEST['siparis']);
+        $siparis = mysqli_real_escape_string($con, $siparis);
+
+        $saglam = stripslashes($_REQUEST['saglam']);
+        $saglam = mysqli_real_escape_string($con, $saglam);
+
+        $defolu = stripslashes($_REQUEST['defolu']);
+        $defolu = mysqli_real_escape_string($con, $defolu);
+
+        $tamir = stripslashes($_REQUEST['tamir']);
+        $tamir = mysqli_real_escape_string($con, $tamir);
+        
+        $query    = "UPDATE  `kalite_kontrol` SET  
+        kalite_kontrol.siparis_id = '".$siparis."' , 
+        kalite_kontrol.saglam_adet = '".$saglam."' , kalite_kontrol.defolu_adet = '".$defolu."',
+        kalite_kontrol.tamir_adet = '".$tamir."'
+        WHERE kalite_kontrol.kalite_id = '".$kalite."'  ";
+        $result   = mysqli_query($con, $query);
+        if ($result) {
+            echo "<div class='form'>
+                  <h3>Başarıyla Bağlantı Sağladın.</h3><br/>
+                  <p class='link'>Buraya Tıkla<a href='signin_1.php'>Oturum Aç</a></p>
+                  </div>";
+        } else {
+            echo "<div class='form'>
+                  <h3>Gerekli Alanlar Eksik Tekar Dene.</h3><br/>
+                  <p class='link'>Buraya Tıkla <a href='signup_1.php'>Kayıt Olmayı</a> Tekrar Dene.</p>
+                  </div>";
+        }
+    } else {
+?> 
+<?php
+    }
+    ?>
 </body>
 
 </html>
