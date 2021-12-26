@@ -1,3 +1,6 @@
+<?php
+error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -7,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Anasayfa</title>
     <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
 </head>
@@ -82,7 +88,73 @@
             <div class="genel_bilgi_container">
                 
                 <div id="first_box" >
+                <p>Sipariş İd leri ve Sipariş Adetleri</p>
+                    <div class="box-2">
+                        <div class="activity-card">
 
+                            <div class="chart">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                            <?php
+                            $siparisler = [];
+                            $sql = "SELECT siparis.siparis_id, siparis.siparis_adeti
+                  FROM siparis 
+                  ;";
+                            $result = $con->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    $siparisler[$row["siparis_id"]] += $row["siparis_adeti"];
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            $con->close();
+
+
+                            ?>
+                            <script>
+                                const data = {
+                                    labels: [
+                                        <?php
+                                        foreach ($siparisler as $key => $value) {
+                                            echo "'" . $key . "',";
+                                        }
+                                        ?>
+                                    ],
+                                    datasets: [{
+                                        label: 'My First Dataset',
+                                        data: [
+                                            <?php
+                                            foreach ($siparisler as $key => $value) {
+                                                echo $value . ",";
+                                            }
+                                            ?>
+                                        ],
+                                        backgroundColor: [
+                                            'rgb(255, 99, 132)',
+                                            'rgb(54, 162, 235)',
+                                            'rgb(255, 205, 21)',
+                                            'rgb(210, 0, 120)',
+                                            'rgb(210, 98, 120)',
+                                        ],
+                                        hoverOffset: 4
+                                    }]
+                                };
+
+                                const config = {
+                                    type: 'pie',
+                                    data: data,
+                                };
+
+
+                                const ctx = document.getElementById('myChart');
+                                const myChart = new Chart(ctx, config);
+                            </script>
+
+                        </div>
+                    </div>
                 
                 </div>
 

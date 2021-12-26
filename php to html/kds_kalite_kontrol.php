@@ -87,6 +87,8 @@ include("../php/baglanti.php");
             margin: 5px;
             background-color: #f0f0f5;
             align-items: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
 
         .kalite_chart_1 {
@@ -121,12 +123,67 @@ include("../php/baglanti.php");
             flex-direction: column;
             align-items: center;
             width: 600px;
-            height: 450px;
+            height: 650px;
             border-radius: 15px;
             margin-left: 50px;
             background-color: #cdcdcd;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
+            
         }
+        form{
+            background: var(--color-gradient-dark);
+            padding: 2.5rem 0.625rem;
+            border-radius: 1rem;
+                backdrop-filter:blur(20px);
+            }
+            @media (min-width: 480px){
+            form{
+                padding: 2.5rem;
+            }
+            }
+            #form-group{
+            margin: 0 auto 0.625rem auto;
+            padding: 0.25rem;
+            }
+
+            .form-control{
+            display:block;
+            width: 100%;
+            height: 2.375rem;
+            padding: 0.375rem 0.75rem;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border:none;
+            border-radius: 0.4rem;
+            }
+
+
+            .submit-button{
+            display: block;
+            position: static;
+            background: var(--color-button);
+            color: #fff;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            margin: auto;
+            width: 150px;
+            height: 50px;
+            cursor:pointer;
+                transition: padding, font-size 1s;
+                    backdrop-filter:blur(20px); 
+            }
+            label{
+            display:flex;
+            align-items:center;
+            margin-bottom:0.5rem;
+            }
+            .kayit_ol_text {
+                margin-left: 150px;
+            }
+            .kalite_title {
+                margin-left: 100px;
+            }
     </style>
     <title>Kalite Kontrol</title>
 </head>
@@ -272,8 +329,8 @@ include("../php/baglanti.php");
 
             <div class="genel_bilgi_container_kalite_2">
                 <div class="kalite_chart_1">
-                    <div class="ariza_turu_title">
-                        <p>Sağlam Arızalı ve Tamir Adetleri</p>
+                    <div class="kalite_title">
+                        <p>Sağlam Çıkan Ürün Listesi</p>
                     </div>
                     <div class="box-2">
                         <div class="activity-card">
@@ -424,8 +481,6 @@ include("../php/baglanti.php");
         $result   = mysqli_query($con, $query);
         if ($result) {
             echo "<div class='form'>
-                  <h3>Başarıyla Bağlantı Sağladın.</h3><br/>
-                  <p class='link'>Buraya Tıkla<a href='signin_1.php'>Oturum Aç</a></p>
                   </div>";
         } else {
             echo "<div class='form'>
