@@ -1,0 +1,73 @@
+.first_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.second_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.thirth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.fourth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.fifth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.box-2{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.activity-card{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.chart{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
