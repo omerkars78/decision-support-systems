@@ -102,7 +102,7 @@ include("../php/baglanti.php");
             margin-left: 320px;
         }
     </style>
-    <title>Anasayfa</title>
+    <title>Kesimhane</title>
 </head>
 
 <body>

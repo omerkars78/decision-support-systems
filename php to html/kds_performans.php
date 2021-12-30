@@ -268,7 +268,7 @@ error_reporting(0);
             </div>
             <div class="genel_bilgi_container_performans_2">
             <div class="second_box_performans">
-                <p id="performans_title">Ömer Kars Adlı Operatörün Sipariş Bazında Gösterdiği Performans</p>
+                <p id="performans_title">Operatör İd ye Göre Sipariş Bazında GösterilenPerformans</p>
                     <div class="box-2">
                         <div class="activity-card">
 

@@ -1,3 +1,6 @@
+p {
+    margin-left: 50px;
+}
 .first_box{
     display: flex;
     flex-direction: column;
@@ -66,7 +69,28 @@
     height: 300px;
     align-items: center;
 }
-#myChart{
+
+#myChart_1{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_2{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_3{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_4{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_5{
     width: 300px;
     height: 300px;
     align-items: center;
