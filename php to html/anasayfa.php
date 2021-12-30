@@ -20,6 +20,9 @@ include("../php/baglanti.php");
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Anasayfa</title>
     <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
+    <style>
+    
+    </style>
 </head>
 
 <body>
@@ -363,7 +366,7 @@ include("../php/baglanti.php");
             };
 
             const config_2 = {
-                type: 'line',
+                type: 'bar',
                 data: data_2,
             };
 
@@ -401,7 +404,7 @@ include("../php/baglanti.php");
             };
 
             const config_3 = {
-                type: 'bar',
+                type: 'pie',
                 data: data_3,
             };
 

@@ -50,6 +50,8 @@ p {
     margin-left: 75px;
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 100px;
+    margin-right: 300px;
 }
 .box-2{
     display: flex;
