@@ -163,7 +163,7 @@ td {
                         <tr>
                             <th height="40">Sipariş ID</th>
                             <th>Tedarikçi Adı</th>
-                            <th>Operasyon Bilgisi</th>
+                            <th>Operasyon Sayısı</th>
                             <th>Sipariş Adeti</th>
                             <th>Sipariş Tarihi</th>
                         </tr>
@@ -172,15 +172,16 @@ td {
                         include("../php/baglanti.php");
 
                         if ($con) {
-                            $query = mysqli_query($con, "SELECT siparis.siparis_id , tedarikci.tedarikci_adi , siparis.operasyon_bilgisi , siparis.siparis_adeti , siparis.siparis_tarihi 
-                                FROM siparis , tedarikci 
-                                WHERE siparis.tedarikci_id = tedarikci.tedarikci_id;");
+                            $query = mysqli_query($con, "SELECT siparis.siparis_id , tedarikci.tedarikci_adi , siparis.siparis_adeti , COUNT(siparis_operasyon.operasyon_id) as operasyon_sayisi , siparis.siparis_tarihi 
+FROM siparis , operasyon, siparis_operasyon , tedarikci
+WHERE siparis.siparis_id=siparis_operasyon.siparis_id AND tedarikci.tedarikci_id = siparis.tedarikci_id AND operasyon.operasyon_id = siparis_operasyon.operasyon_id
+GROUP BY siparis_operasyon.siparis_id;");
                             if (mysqli_num_rows($query) > 0) {
                                 while ($rows = mysqli_fetch_array($query)) { ?>
                                     <tr bgcolor='#ffffff'>
                                         <td height="41" align="center"><?php echo $rows['siparis_id'] ?></td>
                                         <td height="41" align="center"><?php echo $rows['tedarikci_adi'] ?></td>
-                                        <td height="41" align="center"><?php echo $rows['operasyon_bilgisi'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['operasyon_sayisi'] ?></td>
                                         <td height="41" align="center"><?php echo $rows['siparis_adeti'] ?></td>
                                         <td height="41" align="center"><?php echo $rows['siparis_tarihi'] ?></td>
 

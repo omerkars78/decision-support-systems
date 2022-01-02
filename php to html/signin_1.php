@@ -29,7 +29,7 @@
         if ($rows == 1) {
             $_SESSION['email'] = $username;
             // Kullanıcı kontrol paneli sayfasına yönlendir
-            header("Location: anasayfa.html");
+            header("Location: anasayfa.php");
         } else {
             echo "<div class='form'>
                   <h3>Yanlış email veya şifre.</h3><br/>

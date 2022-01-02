@@ -21,7 +21,7 @@ include("../php/baglanti.php");
     <title>Anasayfa</title>
     <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
     <style>
-    
+
     </style>
 </head>
 
@@ -143,9 +143,9 @@ include("../php/baglanti.php");
                                 <canvas id="myChart_2"></canvas>
                             </div>
                             <?php
-                            
+
                             include("../php/baglanti.php");
-                            
+
                             ?>
                             <?php
                             $kesim_farki = [];
@@ -185,9 +185,9 @@ include("../php/baglanti.php");
                                 <canvas id="myChart_3"></canvas>
                             </div>
                             <?php
-                            
+
                             include("../php/baglanti.php");
-                            
+
                             ?>
                             <?php
                             $arizalar = [];
@@ -216,44 +216,44 @@ include("../php/baglanti.php");
 
             <div class="genel_bilgi_container_2">
                 <div class="fourth_box">
-                        <p style="margin-left: 50px; margin-top:10px; font-family: 'Times New Roman'; font-size: 20px;">Sağlam Çıkan Ürün Listesi</p>
-                        <div class="box-2">
-                            <div class="activity-card">
+                    <p style="margin-left: 50px; margin-top:10px; font-family: 'Times New Roman'; font-size: 20px;">Sağlam Çıkan Ürün Listesi</p>
+                    <div class="box-2">
+                        <div class="activity-card">
 
-                                <div style="margin-left: 25px; margin-top:25px;" class="chart">
-                                    <canvas id="myChart_4"></canvas>
-                                </div>
-                                <?php
+                            <div style="margin-left: 25px; margin-top:25px;" class="chart">
+                                <canvas id="myChart_4"></canvas>
+                            </div>
+                            <?php
 
-                                include("../php/baglanti.php");
-                                ?>
-                                <?php
+                            include("../php/baglanti.php");
+                            ?>
+                            <?php
 
-                                $kalite = [];
-                                $sql = "SELECT siparis.siparis_id, siparis.siparis_adeti
+                            $kalite = [];
+                            $sql = "SELECT siparis.siparis_id, siparis.siparis_adeti
                   FROM siparis 
                   ;";
-                                $result = $con->query($sql);
+                            $result = $con->query($sql);
 
-                                if ($result->num_rows > 0) {
-                                    // output data of each row
-                                    while ($row = $result->fetch_assoc()) {
-                                        $kalite[$row["siparis_id"]] += $row["siparis_adeti"];
-                                    }
-                                } else {
-                                    echo "0 results";
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    $kalite[$row["siparis_id"]] += $row["siparis_adeti"];
                                 }
-                                $con->close();
+                            } else {
+                                echo "0 results";
+                            }
+                            $con->close();
 
 
-                                ?>
+                            ?>
 
 
-                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="fifth_box">
+                <div class="fifth_box">
                     <p style="margin-left: 50px; margin-top:10px; font-family: 'Times New Roman'; font-size: 20px;">Operatör İd ye Göre Sipariş Bazında Gösterilen Performans</p>
                     <div class="box-2">
                         <div class="activity-card">
@@ -266,23 +266,21 @@ include("../php/baglanti.php");
                             include("../php/baglanti.php");
                             ?>
                             <?php
-                             $performans = [];
-                             $sql = "SELECT performans.siparis_id, (performans.bes_dk_op*108) AS bir_gunluk
-                   FROM siparis , performans
-                   WHERE performans.siparis_id = siparis.siparis_id
-                   ;";
-                             $result = $con->query($sql);
- 
-                             if ($result->num_rows > 0) {
-                                 // output data of each row
-                                 while ($row = $result->fetch_assoc()) {
-                                     $performans[$row["siparis_id"]] += $row["bir_gunluk"];
-                                 }
-                             } else {
-                                 echo "0 results";
-                             }
-                             $con->close();
+                            $performans = [];
+                            $sql = "SELECT operator.operator_adi , (SUM(bes_dk_op)*108) as toplam FROM operator,performans 
+                              WHERE operator.operator_id = performans.operator_id GROUP BY performans.operator_id
+                                                  ;";
+                            $result = $con->query($sql);
 
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    $performans[$row["operator_adi"]] += $row["toplam"];
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            $con->close();
 
                             ?>
 
@@ -290,203 +288,203 @@ include("../php/baglanti.php");
                         </div>
                     </div>
 
-                    </div>
                 </div>
-
             </div>
 
-
         </div>
-        <script>
-            //birinci chart
-            const data_1 = {
-                labels: [
+
+
+    </div>
+    <script>
+        //birinci chart
+        const data_1 = {
+            labels: [
+                <?php
+                foreach ($siparisler as $key => $value) {
+                    echo "'" . $key . "',";
+                }
+                ?>
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [
                     <?php
                     foreach ($siparisler as $key => $value) {
-                        echo "'" . $key . "',";
+                        echo $value . ",";
                     }
                     ?>
                 ],
-                datasets: [{
-                    label: 'My First Dataset',
-                    data: [
-                        <?php
-                        foreach ($siparisler as $key => $value) {
-                            echo $value . ",";
-                        }
-                        ?>
-                    ],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 21)',
-                        'rgb(210, 0, 120)',
-                        'rgb(210, 98, 120)',
-                    ],
-                    hoverOffset: 4
-                }]
-            };
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 21)',
+                    'rgb(210, 0, 120)',
+                    'rgb(210, 98, 120)',
+                ],
+                hoverOffset: 4
+            }]
+        };
 
-            const config_1 = {
-                type: 'pie',
-                data: data_1,
-            };
+        const config_1 = {
+            type: 'pie',
+            data: data_1,
+        };
 
 
-            const ctx_1 = document.getElementById('myChart_1');
-            const myChart_1 = new Chart(ctx_1, config_1);
+        const ctx_1 = document.getElementById('myChart_1');
+        const myChart_1 = new Chart(ctx_1, config_1);
 
-            // Second Chart
-            const data_2 = {
-                labels: [
+        // Second Chart
+        const data_2 = {
+            labels: [
+                <?php
+                foreach ($kesim_farki as $key => $value) {
+                    echo "'" . $key . "',";
+                }
+                ?>
+            ],
+            datasets: [{
+                label: 'Kesim Farkları',
+                data: [
                     <?php
                     foreach ($kesim_farki as $key => $value) {
-                        echo "'" . $key . "',";
+                        echo $value . ",";
                     }
                     ?>
                 ],
-                datasets: [{
-                    label: 'Kesim Farkları',
-                    data: [
-                        <?php
-                        foreach ($kesim_farki as $key => $value) {
-                            echo $value . ",";
-                        }
-                        ?>
-                    ],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 21)',
-                        'rgb(210, 0, 120)',
-                        'rgb(210, 98, 120)',
-                    ],
-                    hoverOffset: 4
-                }]
-            };
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 21)',
+                    'rgb(210, 0, 120)',
+                    'rgb(210, 98, 120)',
+                ],
+                hoverOffset: 4
+            }]
+        };
 
-            const config_2 = {
-                type: 'bar',
-                data: data_2,
-            };
+        const config_2 = {
+            type: 'bar',
+            data: data_2,
+        };
 
 
-            const ctx_2 = document.getElementById('myChart_2');
-            const myChart_2 = new Chart(ctx_2, config_2);
-            // THİRTH CHART
-            const data_3 = {
-                labels: [
+        const ctx_2 = document.getElementById('myChart_2');
+        const myChart_2 = new Chart(ctx_2, config_2);
+        // THİRTH CHART
+        const data_3 = {
+            labels: [
+                <?php
+                foreach ($arizalar as $key => $value) {
+                    echo "'" . $key . "',";
+                }
+                ?>
+            ],
+            datasets: [{
+                label: 'Arıza Sıklık Grafiği',
+                data: [
                     <?php
                     foreach ($arizalar as $key => $value) {
-                        echo "'" . $key . "',";
+                        echo $value . ",";
                     }
                     ?>
+
                 ],
-                datasets: [{
-                    label: 'Arıza Sıklık Grafiği',
-                    data: [
-                        <?php
-                        foreach ($arizalar as $key => $value) {
-                            echo $value . ",";
-                        }
-                        ?>
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 21)',
+                    'rgb(210, 0, 120)',
+                    'rgb(210, 98, 120)',
+                ],
+                hoverOffset: 4
+            }]
+        };
 
-                    ],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 21)',
-                        'rgb(210, 0, 120)',
-                        'rgb(210, 98, 120)',
-                    ],
-                    hoverOffset: 4
-                }]
-            };
-
-            const config_3 = {
-                type: 'pie',
-                data: data_3,
-            };
+        const config_3 = {
+            type: 'pie',
+            data: data_3,
+        };
 
 
-            const ctx_3 = document.getElementById('myChart_3');
-            const myChart_3 = new Chart(ctx_3, config_3);
-            // FOURTH BOX
-            const data_4 = {
-                labels: [
+        const ctx_3 = document.getElementById('myChart_3');
+        const myChart_3 = new Chart(ctx_3, config_3);
+        // FOURTH BOX
+        const data_4 = {
+            labels: [
+                <?php
+                foreach ($kalite as $key => $value) {
+                    echo "'" . $key . "',";
+                }
+                ?>
+            ],
+            datasets: [{
+                label: 'Kalite Kontrol Grafiği',
+                data: [
                     <?php
                     foreach ($kalite as $key => $value) {
-                        echo "'" . $key . "',";
+                        echo "'" . $value . "',";   // echo $value . ",";
+                    }
+                    ?>
+
+                ],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 21)',
+                    'rgb(210, 0, 120)',
+                    'rgb(210, 98, 120)',
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        const config_4 = {
+            type: 'line',
+            data: data_4,
+        };
+
+
+        const ctx_4 = document.getElementById('myChart_4');
+        const myChart = new Chart(ctx_4, config_4);
+        // FİFTH BOX
+        const data_5 = {
+            labels: [
+                <?php
+                foreach ($performans as $key => $value) {
+                    echo "'" . $key . "',";
+                }
+                ?>
+            ],
+            datasets: [{
+                label: 'Operatör ID',
+                data: [
+                    <?php
+                    foreach ($performans as $key => $value) {
+                        echo $value . ",";
                     }
                     ?>
                 ],
-                datasets: [{
-                    label: 'Kalite Kontrol Grafiği',
-                    data: [
-                        <?php
-                        foreach ($kalite as $key => $value) {
-                            echo "'" . $value . "',";   // echo $value . ",";
-                        }
-                        ?>
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 21)',
+                    'rgb(210, 0, 120)',
+                    'rgb(210, 98, 120)',
+                ],
+                hoverOffset: 4
+            }]
+        };
 
-                    ],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 21)',
-                        'rgb(210, 0, 120)',
-                        'rgb(210, 98, 120)',
-                    ],
-                    hoverOffset: 4
-                }]
-            };
-
-            const config_4 = {
-                type: 'line',
-                data: data_4,
-            };
+        const config_5 = {
+            type: 'bar',
+            data: data_5,
+        };
 
 
-            const ctx_4 = document.getElementById('myChart_4');
-            const myChart = new Chart(ctx_4, config_4);
-            // FİFTH BOX
-            const data_5 = {
-                                    labels: [
-                                        <?php
-                                        foreach ($performans as $key => $value) {
-                                            echo "'" . $key . "',";
-                                        }
-                                        ?>
-                                    ],
-                                    datasets: [{
-                                        label: 'Operatör ID',
-                                        data: [
-                                            <?php
-                                            foreach ($performans as $key => $value) {
-                                                echo $value . ",";
-                                            }
-                                            ?>
-                                        ],
-                                        backgroundColor: [
-                                            'rgb(255, 99, 132)',
-                                            'rgb(54, 162, 235)',
-                                            'rgb(255, 205, 21)',
-                                            'rgb(210, 0, 120)',
-                                            'rgb(210, 98, 120)',
-                                        ],
-                                        hoverOffset: 4
-                                    }]
-                                };
-
-                                const config_5 = {
-                                    type: 'line',
-                                    data: data_5,
-                                };
-
-
-                                const ctx_5 = document.getElementById('myChart_5');
-                                const myChart_5 = new Chart(ctx_5, config_5);
-        </script>
+        const ctx_5 = document.getElementById('myChart_5');
+        const myChart_5 = new Chart(ctx_5, config_5);
+    </script>
 </body>
 
 </html>

@@ -11,11 +11,10 @@ error_reporting(0);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/5c2368ed16.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <style>
-        
         table {
             border: 1px solid black;
         }
@@ -33,21 +32,21 @@ error_reporting(0);
             border: 1px solid black;
             background-color: #ffffff;
         }
-        
+
         .chart #myChart {
             width: 800px;
             height: 500px;
             align-items: center;
         }
-        
-        .box-2{
+
+        .box-2 {
             width: 800px;
             height: 500px;
             align-items: center;
             margin-left: 250px;
             margin-top: 75px;
         }
-        
+
         .anasayfa_main_container .content_container .genel_bilgi_container_performans_2 {
             display: flex;
             flex-direction: row;
@@ -56,7 +55,18 @@ error_reporting(0);
             margin: 5px;
             background-color: #f0f0f5;
             align-items: center;
-            
+
+        }
+
+        .anasayfa_main_container .content_container .genel_bilgi_container_performans_3 {
+            display: flex;
+            flex-direction: row;
+            width: 1310px;
+            height: 100%;
+            margin: 5px;
+            background-color: #f0f0f5;
+            align-items: center;
+
         }
 
         .anasayfa_main_container .content_container .genel_bilgi_container_performans {
@@ -69,6 +79,7 @@ error_reporting(0);
             align-items: center;
             padding-top: 100px;
         }
+
         .anasayfa_main_container .content_container .genel_bilgi_container_performans .performans_first_box {
             display: flex;
             flex-direction: column;
@@ -79,10 +90,27 @@ error_reporting(0);
             margin-bottom: 75px;
             background-color: #cdcdcd;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
-            overflow: none;
+            overflow: scroll;
             padding: 20px;
 
         }
+
+        .anasayfa_main_container .content_container .genel_bilgi_container_performans_2 .third_box {
+            display: flex;
+            flex-direction: column;
+            width: 850px;
+            height: 280px;
+            border-radius: 15px;
+            margin-left: 215px;
+            margin-bottom: 75px;
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+            overflow: none;
+            padding: 20px;
+
+
+        }
+
         .hesaplama {
             display: flex;
             flex-direction: column;
@@ -90,29 +118,34 @@ error_reporting(0);
             width: 150px;
             height: 450px;
             text-align: center;
-            
+
         }
+
         #y1 {
             width: 290px;
             padding: 5px;
-            box-shadow: 1px 1px 5px rgba(255,255,255,0.2);
+            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
             text-align: center;
             height: 20px;
             margin-bottom: 20px;
         }
+
         #hesapla_buton {
             width: 305px;
             height: 40px;
         }
-        #sonuc_yaz , #sonuc_yaz2{
+
+        #sonuc_yaz,
+        #sonuc_yaz2 {
             background-color: #ffffff;
-            margin:auto;
+            margin: auto;
             padding: 25px;
             height: 50px;
             width: 250px;
             box-shadow: 1px 1px 7px #000000;
             border-radius: 12px;
         }
+
         p {
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
@@ -120,14 +153,16 @@ error_reporting(0);
             width: 305px;
             font-weight: bold;
         }
+
         #performans_title {
             font-size: 30px;
             font-family: 'Times New Roman', Times, serif;
             font-weight: bold;
             width: 1000px;
-            margin-left: 220px;
+            margin-left: 275px;
             padding-top: 40px;
         }
+
         #title {
             font-size: 30px;
             font-family: 'Times New Roman', Times, serif;
@@ -136,7 +171,15 @@ error_reporting(0);
             width: 450px;
             margin-left: 200px;
         }
-        
+
+        #title_1 {
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            align-items: center;
+            width: 650px;
+            margin-left: 200px;
+        }
     </style>
     <script>
         window.onload = function(e) {
@@ -158,9 +201,9 @@ error_reporting(0);
 
                 sonucYaz.textContent = "1 Saatlik Operasyon Sayısı: " + s;
                 sonucYaz2.textContent = "1 Günlük Operasyon Sayısı: " + g;
-                
-                                        } 
-                                    }
+
+            }
+        }
     </script>
     <title>Anasayfa</title>
 </head>
@@ -211,7 +254,7 @@ error_reporting(0);
                     </div>
                     <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
                         <tr>
-                            <th>Sipariş ID</th>    
+                            <th>Sipariş ID</th>
                             <th>Operatör Adı</th>
                             <th>5 Dakikalık Operasyon Sayısı</th>
                             <th>1 Saatlik Operasyon Sayısı</th>
@@ -252,23 +295,79 @@ error_reporting(0);
                         }
                         ?>
                     </table>
-                    
-                </div>
-                
-                <div class="hesaplama">
-                                <p>Manuel Performans Hesaplama</p>
-                                <input type="text" id="y1" placeholder="5 Dakikalık Operasyon Giriniz">
-                                <input type="button" id="hesapla_buton" value="Saatlik ve Günlük Hesapla">
-                                <div id="sonuc_yaz"> </div>
-                                <div id="sonuc_yaz2"></div>
 
-                               
+                </div>
+
+                <div class="hesaplama">
+                    <p>Manuel Performans Hesaplama</p>
+                    <input type="text" id="y1" placeholder="5 Dakikalık Operasyon Giriniz">
+                    <input type="button" id="hesapla_buton" value="Saatlik ve Günlük Hesapla">
+                    <div id="sonuc_yaz"> </div>
+                    <div id="sonuc_yaz2"></div>
+
+
                 </div>
 
             </div>
+
             <div class="genel_bilgi_container_performans_2">
-            <div class="second_box_performans">
-                <p id="performans_title">Operatör İd ye Göre Sipariş Bazında GösterilenPerformans</p>
+
+                <div class="third_box">
+                    <p id="title_1">Genel Performans Değerlendirmesi</p>
+                    <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
+                        <tr>
+
+                            <th>Operatör Adı</th>
+                            <th>6 Aylık Toplam Operasyon Sayısı</th>
+                            <th>Genel 6 Aylık Ortalama</th>
+                            <th>Genel Performans Değerlendirmesi</th>
+
+
+                        </tr>
+
+                        <?php
+                        include("../php/baglanti.php");
+
+                        if ($con) {
+                            $query = mysqli_query($con, "SELECT operator.operator_adi , (SUM(bes_dk_op)*108) as alti_aylik_toplam , ((SELECT  (SUM(bes_dk_op)*108) as toplam 
+                            FROM performans)/(SELECT COUNT(*) FROM (SELECT performans.operator_id  FROM operator,performans 
+                                                                   WHERE performans.operator_id = operator.operator_id
+                                                                   GROUP BY performans.operator_id)as yeni )) as ortalama_performans, (SELECT CASE 
+                             WHEN (ortalama_performans - (SUM(bes_dk_op)*108)) < 0 THEN 'Yüksek Performans'
+                             ELSE 'Düşük Performans'
+                             END) as genel_degerlendirme
+                            FROM operator , performans 
+                            WHERE operator.operator_id = performans.operator_id
+                            GROUP BY performans.operator_id; ");
+                            if (mysqli_num_rows($query) > 0) {
+                                while ($rows = mysqli_fetch_array($query)) { ?>
+                                    <tr bgcolor='#ffffff'>
+                                        <td height="41" align="center"><?php echo $rows['operator_adi'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['alti_aylik_toplam'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['ortalama_performans'] ?></td>
+                                        <td height="41" align="center"><?php echo $rows['genel_degerlendirme'] ?></td>
+
+
+                                    </tr>
+
+
+                        <?php
+
+                                }
+                            } else {
+                                echo "<h1>Veri Bulunamadı</h1>";
+                            }
+                        } else {
+                            echo "<h1>Bağlantı Başarısız</h1>";
+                        }
+                        ?>
+                    </table>
+                </div>
+            </div>
+
+            <div class="genel_bilgi_container_performans_3">
+                <div class="second_box_performans">
+                    <p id="performans_title">Operatörlerin 6 Aylık Toplam Performans Değerlendirmesi</p>
                     <div class="box-2">
                         <div class="activity-card">
 
@@ -277,16 +376,15 @@ error_reporting(0);
                             </div>
                             <?php
                             $performans = [];
-                            $sql = "SELECT performans.siparis_id, (performans.bes_dk_op*108) AS bir_gunluk
-                  FROM siparis , performans
-                  WHERE performans.siparis_id = siparis.siparis_id
-                  ;";
+                            $sql = "SELECT operator.operator_adi , (SUM(bes_dk_op)*108) as toplam FROM operator,performans 
+                            WHERE operator.operator_id = performans.operator_id GROUP BY performans.operator_id
+                                                ;";
                             $result = $con->query($sql);
 
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                    $performans[$row["siparis_id"]] += $row["bir_gunluk"];
+                                    $performans[$row["operator_adi"]] += $row["toplam"];
                                 }
                             } else {
                                 echo "0 results";
@@ -305,7 +403,7 @@ error_reporting(0);
                                         ?>
                                     ],
                                     datasets: [{
-                                        label: 'Ömer Kars Performans Tablosu',
+                                        label: 'Operatörlerin 6 Aylık Toplam Performans Değerlendirmesi',
                                         data: [
                                             <?php
                                             foreach ($performans as $key => $value) {
@@ -325,7 +423,7 @@ error_reporting(0);
                                 };
 
                                 const config = {
-                                    type: 'line',
+                                    type: 'bar',
                                     data: data,
                                 };
 
@@ -335,12 +433,12 @@ error_reporting(0);
                             </script>
 
                         </div>
+                    </div>
+
+                </div>
+
             </div>
-
         </div>
-
-    </div>
-    </div>
 </body>
 
 </html>

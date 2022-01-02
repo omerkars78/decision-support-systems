@@ -340,7 +340,7 @@ include("../php/baglanti.php");
                 <div class="second_box_makina">
 
                     <div class="makina_bilgileri">
-                        <p id="makina_igne_bilgileri">Makina Arıza Bilgileri</p>
+                        <p id="makina_igne_bilgileri">6 Aylık Makina Arıza Bilgileri</p>
                     </div>
                     <table id="ariza" bordercolor="black" border="1">
                         <tr>
@@ -478,7 +478,7 @@ include("../php/baglanti.php");
         </div>
         <div class="hesaplama_box">
             <div class="hesaplama">
-                <p id="hesaplam_makina">Manuel Performans Hesaplama</p>
+                <p id="hesaplam_makina">Ortalama Tamir Günü Hesaplama</p>
                 <input type="text" id="y1" placeholder="6 Aydaki Arıza Sayısını Giriniz">
                 <input type="button" id="hesapla_buton" value="Ortalama Tamir Günü Hesapla">
                 <div id="sonuc_yaz"> </div>
