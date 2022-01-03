@@ -480,6 +480,7 @@ include("../php/baglanti.php");
         WHERE kalite_kontrol.kalite_id = '".$kalite."'  ";
         $result   = mysqli_query($con, $query);
         if ($result) {
+            header("Location: ../php to html/kds_kalite_kontrol.php");
             echo "<div class='form'>
                   </div>";
         } else {
