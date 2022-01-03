@@ -95,7 +95,7 @@ include("../php/baglanti.php");
             flex-direction: column;
             align-items: center;
             width: 550px;
-            height: 350px;
+            height: 600px;
             border-radius: 15px;
             margin-left: 320px;
             background-color: #cdcdcd;
@@ -185,7 +185,7 @@ include("../php/baglanti.php");
             height: 500px;
         }
 
-        .chart #myChart_1 {
+        .chart_1 #myChart_1 {
             width: 500px;
             height: 500px;
         }
@@ -245,6 +245,7 @@ include("../php/baglanti.php");
             box-shadow: 0.5px 0.15rem 0.25rem #000;
 
         }
+        
     </style>
     <script>
         window.onload = function(e) {
@@ -421,12 +422,12 @@ include("../php/baglanti.php");
             <div class="third_box_side">
                 <div class="third_box">
                 <div class="ariza_turu_title">
-                        <p>Makinaların 6 Aylık Arıza Sayısı</p>
+                        <p class="ariza_sayisi" style="margin-right: 140px; margin-top:10px; margin-bottom:30px;">Makinaların 6 Aylık Arıza Sayısı</p>
                     </div>
                     <div class="box-2">
                         <div class="activity-card">
 
-                            <div class="chart">
+                            <div class="chart_1">
                                 <canvas id="myChart_1"></canvas>
                                 <?php
 
@@ -434,7 +435,7 @@ include("../php/baglanti.php");
                                 ?>
                             </div>
                             <?php
-                            $arizalar = [];
+                            $ariza_sayisi = [];
                             $sql = "SELECT ariza.makina_id , COUNT(ariza.makina_id) as ariza_sayisi
                             FROM makina , ariza 
                             WHERE makina.makina_id = ariza.makina_id 
@@ -444,7 +445,7 @@ include("../php/baglanti.php");
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                    $arizalar[$row["makina_id"]] += $row["ariza_sayisi"];
+                                    $ariza_sayisi[$row["makina_id"]] += $row["ariza_sayisi"];
                                 }
                             } else {
                                 echo "0 results";
@@ -530,6 +531,48 @@ include("../php/baglanti.php");
 
             ?>
             <script>
+
+                // Makina Arıza Sayısı Chartı
+                const data_1 = {
+                                labels: [
+                                    <?php
+                                    foreach ($ariza_sayisi as $key => $value) {
+                                        echo "'" . $key . "',";
+                                    }
+                                    ?>
+                                ],
+                                datasets: [{
+                                    label: 'Arıza Sıklık Grafiği',
+                                    data: [
+                                        <?php
+                                        foreach ($ariza_sayisi as $key => $value) {
+                                            echo $value . ",";
+                                        }
+                                        ?>
+
+                                    ],
+                                    backgroundColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(255, 205, 21)',
+                                        'rgb(210, 0, 120)',
+                                        'rgb(210, 98, 120)',
+                                    ],
+                                    hoverOffset: 4
+                                }]
+                            };
+
+                            const config_1 = {
+                                type: 'pie',
+                                data: data_1,
+                            };
+
+
+                            const ctx_1 = document.getElementById('myChart_1');
+                            const myChart_1 = new Chart(ctx_1, config_1);
+
+
+
                 // Hataların Sıklık Grafiği
                 const data = {
                     labels: [
@@ -570,44 +613,7 @@ include("../php/baglanti.php");
                 const myChart = new Chart(ctx, config);
 
 
-                // Makina Arıza Sayısı Chartı
-                const data_1 = {
-                                labels: [
-                                    <?php
-                                    foreach ($arizalar as $key => $value) {
-                                        echo "'" . $key . "',";
-                                    }
-                                    ?>
-                                ],
-                                datasets: [{
-                                    label: 'Arıza Sıklık Grafiği',
-                                    data: [
-                                        <?php
-                                        foreach ($arizalar as $key => $value) {
-                                            echo $value . ",";
-                                        }
-                                        ?>
-
-                                    ],
-                                    backgroundColor: [
-                                        'rgb(255, 99, 132)',
-                                        'rgb(54, 162, 235)',
-                                        'rgb(255, 205, 21)',
-                                        'rgb(210, 0, 120)',
-                                        'rgb(210, 98, 120)',
-                                    ],
-                                    hoverOffset: 4
-                                }]
-                            };
-
-                            const config_1 = {
-                                type: 'pie',
-                                data: data_1,
-                            };
-
-
-                            const ctx_1 = document.getElementById('myChart_1');
-                            const myChart_1 = new Chart(ctx_1, config_1);
+                
             </script>
 </body>
 
