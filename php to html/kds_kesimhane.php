@@ -270,7 +270,7 @@ include("../php/baglanti.php");
                             };
 
                             const config = {
-                                type: 'line',
+                                type: 'bar',
                                 data: data,
                             };
 
