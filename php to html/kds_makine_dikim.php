@@ -71,7 +71,7 @@ include("../php/baglanti.php");
         .genel_bilgi_container_makina_2 {
             display: flex;
             flex-direction: row;
-            width: 1510px;
+            width: 1210px;
             height: 100%;
             margin: 5px;
             background-color: #f0f0f5;
@@ -82,7 +82,7 @@ include("../php/baglanti.php");
         .third_box_side {
             display: flex;
             flex-direction: row;
-            width: 1510px;
+            width: 1210px;
             height: 100%;
             margin: 5px;
             background-color: #f0f0f5;
@@ -97,7 +97,7 @@ include("../php/baglanti.php");
             width: 550px;
             height: 350px;
             border-radius: 15px;
-            margin-left: 30px;
+            margin-left: 320px;
             background-color: #cdcdcd;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
 
@@ -139,10 +139,8 @@ include("../php/baglanti.php");
             width: 550px;
             height: 350px;
             border-radius: 15px;
-            margin-left: 120px;
             background-color: #cdcdcd;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
-            margin-left: 200px;
 
         }
 
@@ -422,193 +420,195 @@ include("../php/baglanti.php");
             </div>
             <div class="third_box_side">
                 <div class="third_box">
-
-                    <div class="ariza_turu_title">
-                        <p>Makinelerin 6 Aylık Arıza Sayıları</p>
+                <div class="ariza_turu_title">
+                        <p>Makinaların 6 Aylık Arıza Sayısı</p>
                     </div>
+                    <div class="box-2">
+                        <div class="activity-card">
 
-                    <div class="activity-card">
+                            <div class="chart">
+                                <canvas id="myChart_1"></canvas>
+                                <?php
 
-                        <div class="chart">
-                            <canvas id="myChart_1"></canvas>
-                        </div>
-                        <?php
+                                include("../php/baglanti.php");
+                                ?>
+                            </div>
+                            <?php
+                            $arizalar = [];
+                            $sql = "SELECT ariza.makina_id , COUNT(ariza.makina_id) as ariza_sayisi
+                            FROM makina , ariza 
+                            WHERE makina.makina_id = ariza.makina_id 
+                            GROUP BY ariza.makina_id;";
+                            $result = $con->query($sql);
 
-                        include("../php/baglanti.php");
-                        ?>
-                        <?php
-                        $arizalar = [];
-                        $sql = "SELECT ariza.makina_id , COUNT(ariza.makina_id) as ariza_sayisi
-                    FROM makina , ariza 
-                    WHERE makina.makina_id = ariza.makina_id 
-                    GROUP BY ariza.makina_id;";
-                        $result = $con->query($sql);
-
-                        if ($result->num_rows > 0) {
-                            // output data of each row
-                            while ($row = $result->fetch_assoc()) {
-                                $arizalar[$row["makina_id"]] += $row["ariza_sayisi"];
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    $arizalar[$row["makina_id"]] += $row["ariza_sayisi"];
+                                }
+                            } else {
+                                echo "0 results";
                             }
-                        } else {
-                            echo "0 results";
-                        }
-                        $con->close();
+                            $con->close();
 
 
-                        ?>
+                            ?>
+
+                        </div>
+
 
                     </div>
 
 
                 </div>
+
+
+
 
             </div>
 
+            <div class="genel_bilgi_container_makina_2">
+                <div id="thirth_box_makina">
+                    <div class="ariza_turu_title">
+                        <p>Arıza Türleri Ve 6 Aylık Sayıları</p>
+                    </div>
+                    <div class="box-2">
+                        <div class="activity-card">
 
+                            <div class="chart">
+                                <canvas id="myChart"></canvas>
+                                <?php
 
-
-        </div>
-
-        <div class="genel_bilgi_container_makina_2">
-            <div id="thirth_box_makina">
-                <div class="ariza_turu_title">
-                    <p>Arıza Türleri Ve 6 Aylık Sayıları</p>
-                </div>
-                <div class="box-2">
-                    <div class="activity-card">
-
-                        <div class="chart">
-                            <canvas id="myChart"></canvas>
+                                include("../php/baglanti.php");
+                                ?>
+                            </div>
                             <?php
-
-                            include("../php/baglanti.php");
-                            ?>
-                        </div>
-                        <?php
-                        $arizalar = [];
-                        $sql = "SELECT ariza.ariza_turu, COUNT(ariza.ariza_turu) as ariza_sikligi
+                            $arizalar = [];
+                            $sql = "SELECT ariza.ariza_turu, COUNT(ariza.ariza_turu) as ariza_sikligi
                             FROM makina , ariza 
                             WHERE makina.makina_id = ariza.makina_id 
                             GROUP BY ariza.ariza_turu;";
-                        $result = $con->query($sql);
+                            $result = $con->query($sql);
 
-                        if ($result->num_rows > 0) {
-                            // output data of each row
-                            while ($row = $result->fetch_assoc()) {
-                                $arizalar[$row["ariza_turu"]] += $row["ariza_sikligi"];
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    $arizalar[$row["ariza_turu"]] += $row["ariza_sikligi"];
+                                }
+                            } else {
+                                echo "0 results";
                             }
-                        } else {
-                            echo "0 results";
-                        }
-                        $con->close();
+                            $con->close();
 
 
-                        ?>
+                            ?>
+
+                        </div>
+
 
                     </div>
 
 
+
+
                 </div>
+                <div class="hesaplama_box">
+                    <div class="hesaplama">
+                        <p id="hesaplam_makina">Ortalama Tamir Günü Hesaplama</p>
+                        <input type="text" id="y1" placeholder="6 Aydaki Arıza Sayısını Giriniz">
+                        <input type="button" id="hesapla_buton" value="Ortalama Tamir Günü Hesapla">
+                        <div id="sonuc_yaz"> </div>
+                    </div>
 
 
 
 
-            </div>
-            <div class="hesaplama_box">
-                <div class="hesaplama">
-                    <p id="hesaplam_makina">Ortalama Tamir Günü Hesaplama</p>
-                    <input type="text" id="y1" placeholder="6 Aydaki Arıza Sayısını Giriniz">
-                    <input type="button" id="hesapla_buton" value="Ortalama Tamir Günü Hesapla">
-                    <div id="sonuc_yaz"> </div>
                 </div>
-
-
-
-
             </div>
-        </div>
-        <script>
-            // Hataların Sıklık Grafiği
-            const data = {
-                labels: [
-                    <?php
-                    foreach ($arizalar as $key => $value) {
-                        echo "'" . $key . "',";
-                    }
-                    ?>
-                ],
-                datasets: [{
-                    label: 'Arıza Sıklık Grafiği',
-                    data: [
+
+            <?php
+
+            ?>
+            <script>
+                // Hataların Sıklık Grafiği
+                const data = {
+                    labels: [
                         <?php
                         foreach ($arizalar as $key => $value) {
-                            echo $value . ",";
+                            echo "'" . $key . "',";
                         }
                         ?>
-
                     ],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 21)',
-                        'rgb(210, 0, 120)',
-                        'rgb(210, 98, 120)',
-                    ],
-                    hoverOffset: 4
-                }]
-            };
+                    datasets: [{
+                        label: 'Arıza Sıklık Grafiği',
+                        data: [
+                            <?php
+                            foreach ($arizalar as $key => $value) {
+                                echo $value . ",";
+                            }
+                            ?>
 
-            const config = {
-                type: 'bar',
-                data: data,
-            };
+                        ],
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 21)',
+                            'rgb(210, 0, 120)',
+                            'rgb(210, 98, 120)',
+                        ],
+                        hoverOffset: 4
+                    }]
+                };
 
-
-            const ctx = document.getElementById('myChart');
-            const myChart = new Chart(ctx, config);
-
-            // Makina Arıza Sayısı Chartı
-            const data_1 = {
-                labels: [
-                    <?php
-                    foreach ($arizalar as $key => $value) {
-                        echo "'" . $key . "',";
-                    }
-                    ?>
-                ],
-                datasets: [{
-                    label: 'Arıza Sıklık Grafiği',
-                    data: [
-                        <?php
-                        foreach ($arizalar as $key => $value) {
-                            echo $value . ",";
-                        }
-                        ?>
-
-                    ],
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 21)',
-                        'rgb(210, 0, 120)',
-                        'rgb(210, 98, 120)',
-                    ],
-                    hoverOffset: 4
-                }]
-            };
-
-            const config_1 = {
-                type: 'pie',
-                data: data_1,
-            };
+                const config = {
+                    type: 'bar',
+                    data: data,
+                };
 
 
-            const ctx_1 = document.getElementById('myChart_1');
-            const myChart_1 = new Chart(ctx_1, config_1);
-        </script>
-<?php
+                const ctx = document.getElementById('myChart');
+                const myChart = new Chart(ctx, config);
 
-?>
+
+                // Makina Arıza Sayısı Chartı
+                const data_1 = {
+                                labels: [
+                                    <?php
+                                    foreach ($arizalar as $key => $value) {
+                                        echo "'" . $key . "',";
+                                    }
+                                    ?>
+                                ],
+                                datasets: [{
+                                    label: 'Arıza Sıklık Grafiği',
+                                    data: [
+                                        <?php
+                                        foreach ($arizalar as $key => $value) {
+                                            echo $value . ",";
+                                        }
+                                        ?>
+
+                                    ],
+                                    backgroundColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(255, 205, 21)',
+                                        'rgb(210, 0, 120)',
+                                        'rgb(210, 98, 120)',
+                                    ],
+                                    hoverOffset: 4
+                                }]
+                            };
+
+                            const config_1 = {
+                                type: 'pie',
+                                data: data_1,
+                            };
+
+
+                            const ctx_1 = document.getElementById('myChart_1');
+                            const myChart_1 = new Chart(ctx_1, config_1);
+            </script>
 </body>
 
 </html>

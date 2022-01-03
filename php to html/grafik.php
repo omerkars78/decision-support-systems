@@ -232,3 +232,82 @@ include("../php/baglanti.php") ?>
                 }
             </script>
 </html>
+
+
+<div class="ariza_turu_title">
+                        <p>Makinelerin 6 Aylık Arıza Sayıları</p>
+                    </div>
+
+                    <div class="activity-card">
+
+                        <div class="chart">
+                            <canvas id="myChart_1"></canvas>
+                        </div>
+                        <?php
+
+                        include("../php/baglanti.php");
+                        ?>
+                        <?php
+                        $arizalar = [];
+                        $sql = "SELECT ariza.makina_id , COUNT(ariza.makina_id) as ariza_sayisi
+                    FROM makina , ariza 
+                    WHERE makina.makina_id = ariza.makina_id 
+                    GROUP BY ariza.makina_id;";
+                        $result = $con->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                $arizalar[$row["makina_id"]] += $row["ariza_sayisi"];
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        $con->close();
+
+
+                        ?>
+                        <script>
+                            // Makina Arıza Sayısı Chartı
+                            const data_1 = {
+                                labels: [
+                                    <?php
+                                    foreach ($arizalar as $key => $value) {
+                                        echo "'" . $key . "',";
+                                    }
+                                    ?>
+                                ],
+                                datasets: [{
+                                    label: 'Arıza Sıklık Grafiği',
+                                    data: [
+                                        <?php
+                                        foreach ($arizalar as $key => $value) {
+                                            echo $value . ",";
+                                        }
+                                        ?>
+
+                                    ],
+                                    backgroundColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(255, 205, 21)',
+                                        'rgb(210, 0, 120)',
+                                        'rgb(210, 98, 120)',
+                                    ],
+                                    hoverOffset: 4
+                                }]
+                            };
+
+                            const config_1 = {
+                                type: 'pie',
+                                data: data_1,
+                            };
+
+
+                            const ctx_1 = document.getElementById('myChart_1');
+                            const myChart_1 = new Chart(ctx_1, config_1);
+                        </script>
+                    </div>
+
+
+                </div>
