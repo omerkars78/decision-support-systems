@@ -153,10 +153,12 @@ include("../php/baglanti.php");
             width: 500px;
             height: 300px;
         }
+
         .chart #myChart_2 {
             width: 500px;
             height: 300px;
         }
+
         .chart #myChart_3 {
             width: 500px;
             height: 300px;
@@ -383,7 +385,7 @@ include("../php/baglanti.php");
                         <p>Sağlam Çıkan Ürün Listesi</p>
                     </div>
                     <div class="box-2">
-                    
+
                         <div class="activity-card">
 
                             <div class="chart">
@@ -391,8 +393,8 @@ include("../php/baglanti.php");
                             </div>
                             <?php
 
-                        include("../php/baglanti.php");
-                    ?>
+                            include("../php/baglanti.php");
+                            ?>
                             <?php
                             $kalite_kontrol = [];
                             $sql = "SELECT siparis.siparis_id, round((kalite_kontrol.saglam_adet / siparis.siparis_adeti)*100,2) as saglam_yuzde , 
@@ -428,10 +430,10 @@ include("../php/baglanti.php");
                         <p>Defolu Çıkan Ürün Listesi</p>
                     </div>
                     <div class="box-2">
-                    <?php
+                        <?php
 
                         include("../php/baglanti.php");
-                    ?>
+                        ?>
                         <div class="activity-card">
 
                             <div class="chart">
@@ -482,8 +484,8 @@ include("../php/baglanti.php");
                             </div>
                             <?php
 
-                        include("../php/baglanti.php");
-                    ?>
+                            include("../php/baglanti.php");
+                            ?>
                             <?php
                             $kalite_kontrol_tamir = [];
                             $sql = "SELECT siparis.siparis_id, round((kalite_kontrol.saglam_adet / siparis.siparis_adeti)*100,2) as saglam_yuzde , 

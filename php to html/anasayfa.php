@@ -21,7 +21,38 @@ include("../php/baglanti.php");
     <title>Anasayfa</title>
     <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
     <style>
+        .fourth_box{
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            height: 350px;
+            border-radius: 15px;
+            margin-left: 75px;
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+        }
+        .fifth_box {
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            height: 350px;
+            border-radius: 15px;
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+            /* margin-left: 80px; */
+            /* margin-right: 320px; */
+        }
 
+        .sixth_box {
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            height: 350px;
+            border-radius: 15px;
+            /* margin-left: 75px; */
+            background-color: #cdcdcd;
+            box-shadow: 0.5px 0.15rem 0.25rem #000;
+        }
     </style>
 </head>
 
@@ -67,31 +98,7 @@ include("../php/baglanti.php");
 
             </div>
 
-            <div class="gunluk_bilgi_kutusu">
-                <div class="gunluk_bilgiler">
 
-                    <div id="tarih">
-
-
-                    </div>
-
-                    <div id="saat">
-
-
-                    </div>
-
-                    <div id="kesimdeki_urun">
-
-
-                    </div>
-
-                    <div id="bekleyen_siparis">
-
-
-                    </div>
-
-                </div>
-            </div>
 
             <div class="genel_bilgi_container">
 
@@ -287,6 +294,9 @@ include("../php/baglanti.php");
 
                         </div>
                     </div>
+
+                </div>
+                <div class="sixth_box">
 
                 </div>
             </div>
