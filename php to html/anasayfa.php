@@ -254,7 +254,7 @@ include("../php/baglanti.php");
                 </div>
 
                 <div class="fifth_box">
-                    <p style="margin-left: 50px; margin-top:10px; font-family: 'Times New Roman'; font-size: 20px;">Operatör İd ye Göre Sipariş Bazında Gösterilen Performans</p>
+                    <p style="margin-left: 50px; margin-top:10px; font-family: 'Times New Roman'; font-size: 20px;">Operatörlerin 6 Aylık Toplam Operasyon Sayısı</p>
                     <div class="box-2">
                         <div class="activity-card">
 

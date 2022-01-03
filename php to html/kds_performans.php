@@ -101,8 +101,8 @@ error_reporting(0);
             width: 850px;
             height: 280px;
             border-radius: 15px;
-            margin-left: 215px;
-            margin-bottom: 75px;
+            margin-left: 50px;
+            margin-bottom: 15px;
             background-color: #cdcdcd;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
             overflow: none;
@@ -121,7 +121,26 @@ error_reporting(0);
 
         }
 
+        .hesaplama_1 {
+            display: flex;
+            flex-direction: column;
+            margin-left: 25px;
+            margin-top: 50px;
+            width: 150px;
+            height: 450px;
+            text-align: center;
+
+        }
+
         #y1 {
+            width: 290px;
+            padding: 5px;
+            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            height: 20px;
+            margin-bottom: 20px;
+        }
+        #y3 {
             width: 290px;
             padding: 5px;
             box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
@@ -134,9 +153,23 @@ error_reporting(0);
             width: 305px;
             height: 40px;
         }
+        #hesapla_buton_1 {
+            width: 305px;
+            height: 40px;
+        }
 
         #sonuc_yaz,
         #sonuc_yaz2 {
+            background-color: #ffffff;
+            margin: auto;
+            padding: 25px;
+            height: 50px;
+            width: 250px;
+            box-shadow: 1px 1px 7px #000000;
+            border-radius: 12px;
+        }
+
+        #sonuc_yaz_1 {
             background-color: #ffffff;
             margin: auto;
             padding: 25px;
@@ -185,9 +218,11 @@ error_reporting(0);
         window.onload = function(e) {
 
             var y1 = document.getElementById("y1");
+            var y3 = document.getElementById("y3");
             var sonuc = document.getElementById("sonuc");
             var hesapla = document.getElementById("hesapla_buton");
             var sonucYaz = document.getElementById("sonuc_yaz");
+            var sonuc_yaz_1 = document.getElementById("sonuc_yaz_1");
             var sonucYaz2 = document.getElementById("sonuc_yaz2");
 
             /*hesapla butonuna tıkladığında*/
@@ -199,8 +234,23 @@ error_reporting(0);
                 var g = (Number(y1.value) * 108);
                 console.log(g);
 
+                var x = (Number(y3.value) * 120);
+                console.log(x);
+
                 sonucYaz.textContent = "1 Saatlik Operasyon Sayısı: " + s;
                 sonucYaz2.textContent = "1 Günlük Operasyon Sayısı: " + g;
+                sonuc_yaz_1.textContent = "6 Aylık Operasyon Sayısı: " + x;
+
+            }
+            hesapla_buton_1.onclick = function() {
+
+               
+
+                var x = (Number(y3.value) * 120);
+                console.log(x);
+
+               
+                sonuc_yaz_1.textContent = "6 Aylık Operasyon Sayısı: " + x;
 
             }
         }
@@ -362,6 +412,19 @@ error_reporting(0);
                         }
                         ?>
                     </table>
+                </div>
+
+
+                <div class="fourth_box">
+                    <div class="hesaplama_1">
+                        <p>Günlük Değere Göre 6 Aylık Toplam Performans </p>
+                        <input type="number" id="y3" placeholder="Günlük Operasyon Giriniz">
+                        <input type="button" id="hesapla_buton_1" value="6 Aylık Toplam Hesapla">
+                        <div id="sonuc_yaz_1"> </div>
+
+
+
+                    </div>
                 </div>
             </div>
 
