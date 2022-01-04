@@ -19,25 +19,35 @@ include("../php/baglanti.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
-        table {
-            border: 1px solid black;
-            width: 500px;
-            height: 400px;
+        th{
+            padding:10px;
+            text-align:center;
+            margin-bottom:5px;
         }
+    .first_box_kalite {
+        background-color: #ffffff;
+        border-radius: 7px;
+    }
 
-        th {
-            border: 1px solid black;
-        }
+    .first_box_kalite h3 {
+        color: black;
+        margin: 1rem;
+    }
 
-        tr {
-            border: 1px solid black;
-            background-color: #ffffff;
-        }
+    .first_box_kalite table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-        td {
-            border: 1px solid black;
-            background-color: #ffffff;
-        }
+    .first_box_kalite thead {
+        background: #efefef;
+        text-align: left;
+    }
+
+    td {
+        padding: 0.2rem;
+    }
+       
 
         p {
             font-size: 20px;
@@ -49,12 +59,12 @@ include("../php/baglanti.php");
 
         .kalite_bilgileri {
             display: flex;
-            align-items: center;
-            margin-left: 100px;
+           
+          text-align: center;
 
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_kalite .first_box_kalite {
+        .first_box_kalite {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -62,12 +72,12 @@ include("../php/baglanti.php");
             height: 450px;
             border-radius: 15px;
             margin-left: 30px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
 
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_kalite .second_box_kalite {
+        .second_box_kalite {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -75,12 +85,12 @@ include("../php/baglanti.php");
             height: 450px;
             border-radius: 15px;
             margin-left: 50px;
-            background-color: #cdcdcd;
+            background-color:white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
 
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_kalite_2 {
+       .genel_bilgi_container_kalite_2 {
             display: flex;
             flex-direction: row;
             width: 1310px;
@@ -92,7 +102,7 @@ include("../php/baglanti.php");
             padding-bottom: 20px;
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_kalite_3 {
+      .genel_bilgi_container_kalite_3 {
             display: flex;
             flex-direction: row;
             width: 1310px;
@@ -112,7 +122,7 @@ include("../php/baglanti.php");
             height: 450px;
             border-radius: 15px;
             margin-left: 30px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
         }
 
@@ -124,7 +134,7 @@ include("../php/baglanti.php");
             height: 450px;
             border-radius: 15px;
             margin-left: 30px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
         }
 
@@ -136,7 +146,7 @@ include("../php/baglanti.php");
             height: 650px;
             border-radius: 15px;
             margin-left: 50px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
         }
 
@@ -173,13 +183,13 @@ include("../php/baglanti.php");
             height: 450px;
             border-radius: 15px;
             margin-left: 30px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
 
         }
 
         form {
-            background: var(--color-gradient-dark);
+            background: lightgreen;
             padding: 2.5rem 0.625rem;
             border-radius: 1rem;
             backdrop-filter: blur(20px);
@@ -291,7 +301,8 @@ include("../php/baglanti.php");
                     <div class="kalite_bilgileri">
                         <p>Kalite Kontrol Bilgileri</p>
                     </div>
-                    <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
+                    <table cellspacing="0" cellpadding="0">
+                        <thead>
                         <tr>
                             <th height="40">Sipariş ID</th>
                             <th>Sipariş Adeti</th>
@@ -299,7 +310,7 @@ include("../php/baglanti.php");
                             <th>Defolu Adet</th>
                             <th>Tamir Adet</th>
                         </tr>
-
+                        </thead>
                         <?php
                         include("../php/baglanti.php");
 
@@ -337,14 +348,15 @@ include("../php/baglanti.php");
                     <div class="kalite_bilgileri">
                         <p>Kalite Yüzde Bilgileri</p>
                     </div>
-                    <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
+                    <table cellspacing="0" cellpadding="0">
+                        <thead>
                         <tr>
                             <th height="40">Sipariş ID</th>
                             <th>Sağlam Adeti Yüzdesi</th>
                             <th>Defolu Adeti Yüzdesi</th>
                             <th>Tamir Adeti Yüzdesi</th>
                         </tr>
-
+                    </thead>
                         <?php
                         include("../php/baglanti.php");
 

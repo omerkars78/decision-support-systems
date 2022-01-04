@@ -15,23 +15,7 @@ error_reporting(0);
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <style>
-        table {
-            border: 1px solid black;
-        }
-
-        th {
-            border: 1px solid black;
-        }
-
-        tr {
-            border: 1px solid black;
-            background-color: #ffffff;
-        }
-
-        td {
-            border: 1px solid black;
-            background-color: #ffffff;
-        }
+      
 
         .chart #myChart {
             width: 800px;
@@ -47,7 +31,7 @@ error_reporting(0);
             margin-top: 75px;
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_performans_2 {
+        .genel_bilgi_container_performans_2 {
             display: flex;
             flex-direction: row;
             width: 1310px;
@@ -58,7 +42,7 @@ error_reporting(0);
 
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_performans_3 {
+        .genel_bilgi_container_performans_3 {
             display: flex;
             flex-direction: row;
             width: 1310px;
@@ -69,7 +53,7 @@ error_reporting(0);
 
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_performans {
+        .genel_bilgi_container_performans {
             display: flex;
             flex-direction: row;
             width: 1310px;
@@ -80,7 +64,7 @@ error_reporting(0);
             padding-top: 100px;
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_performans .performans_first_box {
+        .performans_first_box {
             display: flex;
             flex-direction: column;
             width: 850px;
@@ -88,22 +72,22 @@ error_reporting(0);
             border-radius: 15px;
             margin-left: 55px;
             margin-bottom: 75px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
             overflow: scroll;
             padding: 20px;
 
         }
 
-        .anasayfa_main_container .content_container .genel_bilgi_container_performans_2 .third_box {
+        .third_box {
             display: flex;
             flex-direction: column;
-            width: 850px;
+            width: 750px;
             height: 280px;
             border-radius: 15px;
             margin-left: 50px;
             margin-bottom: 15px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
             overflow: none;
             padding: 20px;
@@ -306,6 +290,7 @@ error_reporting(0);
                         <p id="title">Operatörler Performans Bilgileri</p>
                     </div>
                     <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
+                        <thead>
                         <tr>
                             <th>Sipariş ID</th>
                             <th>Operatör Adı</th>
@@ -315,7 +300,7 @@ error_reporting(0);
                             <th>Performans Tarihi</th>
 
                         </tr>
-
+                        </thead>
                         <?php
                         include("../php/baglanti.php");
 
@@ -368,8 +353,8 @@ error_reporting(0);
                 <div class="third_box">
                     <p id="title_1">Genel Performans Değerlendirmesi</p>
                     <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
+                        <thead>
                         <tr>
-
                             <th>Operatör Adı</th>
                             <th>6 Aylık Toplam Operasyon Sayısı</th>
                             <th>Genel 6 Aylık Ortalama</th>
@@ -377,7 +362,7 @@ error_reporting(0);
 
 
                         </tr>
-
+                        </thead>
                         <?php
                         include("../php/baglanti.php");
 
