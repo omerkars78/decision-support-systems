@@ -76,34 +76,17 @@ include("../php/baglanti.php");
     background-color: #f0f0f5;
     align-items: center;
 }
-table {
-    border: 1px solid black;
-}
-th {
-    border: 1px solid black;
-}
-tr {
-    border: 1px solid black;
-    background-color: #ffffff;
-}
-td {
-    border: 1px solid black;
-    background-color: #ffffff;
-}
-.anasayfa_main_container .content_container .genel_bilgi_container_siparis .first_box_siparis {
+
+.first_box_siparis {
     display: flex;
     flex-direction: column;
-    width: 850px;
-    height: 450px;
     border-radius: 15px;
     margin-left: 55px;
     margin-bottom: 75px;
-    background-color: #cdcdcd;
+    background-color: #ffffff;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
     overflow: none;
     padding: 20px;
-   
-
 }
 .anasayfa_main_container .content_container .genel_bilgi_container_siparis .first_box_siparis .siparis_bilgileri {
     display: flex;

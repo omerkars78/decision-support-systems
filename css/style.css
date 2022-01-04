@@ -58,6 +58,25 @@ button:hover {
     background-color: var(--color-button);
 }
 
+th , td {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.2rem;
+    color: var(--color-dark);
+  }
+  td {
+    font-size: 0.8rem;
+  }
+  
+  tbody tr:nth-child(even) {
+    background: #f9fafc;
+    margin-bottom: 10p;
+  }
+  
+  .td-team {
+    display: flex;
+    align-items: center;
+  }
+
 /* Anaysayfa Bigileri */ 
 .anasayfa_main_container {
 	display: flex;
@@ -167,7 +186,7 @@ button:hover {
     width: 1310px;
     height: 100%;
     margin: 5px;
-    background-color: #fffff;
+    background-color: #ffffff;
     align-items: center;
 }
 .genel_bilgi_container_2 {
@@ -298,15 +317,13 @@ box-shadow: none;
     background-color: #f0f0f5;
     align-items: center;
 }
- #first_box_siparis {
+ .first_box_siparis {
     display: flex;
     flex-direction: column;
-    width: 850px;
-    height: 450px;
     border-radius: 15px;
     margin-left: 75px;
     margin-bottom: 75px;
-    background-color: #cdcdcd;
+    background-color: white;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
     overflow-x: none;
     overflow-y: none; 
