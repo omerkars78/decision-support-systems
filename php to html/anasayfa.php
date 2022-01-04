@@ -264,7 +264,7 @@ include("../php/baglanti.php");
                 </div>
                 <div class="sixth_box">
                 <div class="ariza_turu_title">
-                        <p>Arıza Türleri Ve 6 Aylık Sayıları</p>
+                        <p style="margin-left: 50px; margin-top:10px; font-family: 'Times New Roman'; font-size: 20px;">Arıza Türleri Ve 6 Aylık Sayıları</p>
                     </div>
                     <div class="box-2">
                         <div class="activity-card">
@@ -277,17 +277,17 @@ include("../php/baglanti.php");
                                 ?>
                             </div>
                             <?php
-                            $arizalar = [];
-                            $sql = "SELECT ariza.ariza_turu, COUNT(ariza.ariza_turu) as ariza_sikligi
+                            $ariza_sayisi = [];
+                            $sql = "SELECT ariza.makina_id , COUNT(ariza.makina_id) as ariza_sayisi
                             FROM makina , ariza 
                             WHERE makina.makina_id = ariza.makina_id 
-                            GROUP BY ariza.ariza_turu;";
+                            GROUP BY ariza.makina_id;";
                             $result = $con->query($sql);
 
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while ($row = $result->fetch_assoc()) {
-                                    $arizalar[$row["ariza_turu"]] += $row["ariza_sikligi"];
+                                    $ariza_sayisi[$row["makina_id"]] += $row["ariza_sayisi"];
                                 }
                             } else {
                                 echo "0 results";
