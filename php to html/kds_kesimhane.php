@@ -20,6 +20,7 @@ include("../php/baglanti.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
     <style>
+        
         #kesimhane_bilgileri {
             font-weight:800;
 
@@ -57,12 +58,25 @@ include("../php/baglanti.php");
         width: 800px;
         height: 500px;
         align-items: center;
+        margin: auto;
+        margin-top: 30px;
     }
 
     .activity-card {
-        width: 800px;
-        height: 500px;
+        width: 600px;
+        height: 400px;
         align-items: center;
+        text-align: center;
+        background: white;
+        padding: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        border-radius:10px;
+        box-shadow: 0.5px 0.15rem 0.25rem #000;
     }
 
     .box-1 {
@@ -72,8 +86,8 @@ include("../php/baglanti.php");
     }
 
     .chart #myChart {
-        width: 800px;
-        height: 500px;
+        width: 600px;
+        height: 400px;
         align-items: center;
     }
 
@@ -98,6 +112,7 @@ include("../php/baglanti.php");
 
         justify-content: center;
     }
+    
     </style>
     <title>Kesimhane</title>
 </head>
@@ -205,10 +220,10 @@ include("../php/baglanti.php");
 
             <div class="genel_bilgi_container_kesimhane_2">
 
-                <p>Sipariş İd leri ve Kesim Farkları</p>
+                
                 <div class="box-2">
                     <div class="activity-card">
-
+                    <p>Sipariş İd leri ve Kesim Farkları</p>
                         <div class="chart">
                             <canvas id="myChart"></canvas>
                         </div>

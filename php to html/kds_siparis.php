@@ -20,6 +20,10 @@ include("../php/baglanti.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
     <title>Anasayfa</title>
     <style>
+        .borderli{
+            border-bottom:0.5px solid black;
+            padding-bottom:10px;
+        }
         p {
             font-size: 20px;
             font-family: 'Times New Roman', Times, serif;
@@ -54,7 +58,7 @@ include("../php/baglanti.php");
             height: 500px;
             align-items: center;
         }
-        .anasayfa_main_container .content_container  .genel_bilgi_container_siparis .second_box_siparis {
+        .second_box_siparis {
             display: flex;
             flex-direction: column;
             width: 600px;
@@ -62,7 +66,7 @@ include("../php/baglanti.php");
             border-radius: 15px;
             margin-right: 50px;
             margin-bottom: 75px;
-            background-color: #cdcdcd;
+            background-color: white;
             box-shadow: 0.5px 0.15rem 0.25rem #000;
             align-items: center;
 
@@ -146,7 +150,7 @@ include("../php/baglanti.php");
                 <div class="first_box_siparis">
                 <div class="siparis_bilgileri"><p>Sipariş Bilgileri</p></div>
                     <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
-                        <tr>
+                        <tr class="borderli">
                             <th height="40">Sipariş ID</th>
                             <th>Tedarikçi Adı</th>
                             <th>Operasyon Sayısı</th>
