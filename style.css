@@ -1,39 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-:root{
-    --color-background:#f3f3f3;
-    --color-grafik: #f3f3f3;
-    --color-sidebar:linear-gradient(#008000,#38b000);
-    --color-gradient-dark: rgba(0,0,0,0.25);
-    --color-button: linear-gradient(200deg,#008000,#38b000);
-  }
-
-
 body{
     margin: 0;
-    font-family: "Poppins", sans-serif;
     padding: 0;
 }
-.menu_bar_tutucu li {
-    margin-bottom: 1.7rem;
-    padding: 12px;
-    align-items: center;
-    cursor: pointer;
-  }
-  .menu_bar_tutucu li:hover{
-      background: var(--color-sidebar);
-  }
-  
-  .menu_bar_tutucu a {
-    color: #ffffff;
-    font-size: 0.9rem;
-  }
-li { 
-    border-radius: 2px;
-    border: 0.25em 3rem white;
-    box-shadow: 0.5px 0.5px 5px rgb(255, 255, 255)
-}
-li > a{
-    margin-bottom:20px;
+button {
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    margin: 15px 15px 15px 30px;
+    background-color: #008000;
+    border: 0.25em white;
+    box-shadow: 1px 0.5rem 0.5rem rgb(0, 0, 0)
 }
 a{
     color: rgb(255, 255, 255);
@@ -55,7 +31,7 @@ p{
 }
 
 button:hover {
-    background-color: var(--color-button);
+    background-color: #9ef01a;
 }
 
 /* Anaysayfa Bigileri */ 
@@ -64,38 +40,35 @@ button:hover {
 	flex-direction: row;
 	background-color: #cdcdcd;
 }
-.menu_bar_tutucu {
+.anasayfa_main_container .menu_bar_tutucu {
     display: flex;
-    padding-right: 20px;
     flex-direction: column;
     background-color:#38b000;
-    width: 60%;
-   
+    width: 50%;
+    height: 100vh;
 }
-.logo {
+.anasayfa_main_container .menu_bar_tutucu .logo {
     display: flex;
     flex-direction: column;
     width: 197px;
     height: 80px;
     margin-top: 10px;
-    margin-left: 10px;
     margin-bottom: 40px;
-    border-bottom: 0.2px solid black;
     /*border-bottom: 4px white solid;*/
 }
-.logo_foto {
+.anasayfa_main_container .menu_bar_tutucu .logo .logo_foto {
     width: 180px;
     margin-left: 15px;
     height: 70px;
 }
 
- .content_container {
+.anasayfa_main_container .content_container {
     display: flex;
     flex-direction: column;
     background-color:white;
 
 }
-.ust_bar {
+.anasayfa_main_container .content_container .ust_bar {
     display: flex;
     height: 140px;
     width: 1312px;
@@ -103,7 +76,7 @@ button:hover {
    /* border-left:5px white solid;*/
 }
 
-.gunluk_bilgi_kutusu {
+.anasayfa_main_container .content_container .gunluk_bilgi_kutusu {
     display: flex;
     flex-direction: column;
     background-color:#fcfafa ;
@@ -113,7 +86,7 @@ button:hover {
     
 }
 
-.gunluk_bilgiler {
+.anasayfa_main_container .content_container .gunluk_bilgi_kutusu  .gunluk_bilgiler {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -121,7 +94,7 @@ button:hover {
     background-color: #f0f0f5;
 }
 
-#tarih {
+.anasayfa_main_container .content_container .gunluk_bilgi_kutusu  .gunluk_bilgiler #tarih {
     height: 120px;
     width: 250px;
     background-color: #cdcdcd;
@@ -130,7 +103,8 @@ button:hover {
     box-shadow: 0.5px 0.15rem 0.25rem #000;
     border-radius: 15px;
 }
-#saat {
+
+.anasayfa_main_container .content_container .gunluk_bilgi_kutusu  .gunluk_bilgiler #saat {
     height: 120px;
     width: 250px;
     background-color: #cdcdcd;
@@ -141,7 +115,7 @@ button:hover {
     border-radius: 15px;
 }
 
-#kesimdeki_urun {
+.anasayfa_main_container .content_container .gunluk_bilgi_kutusu  .gunluk_bilgiler #kesimdeki_urun {
     height: 120px;
     width: 250px;
     background-color: #cdcdcd;
@@ -152,7 +126,7 @@ button:hover {
    
 }
 
-#bekleyen_siparis {
+.anasayfa_main_container .content_container .gunluk_bilgi_kutusu  .gunluk_bilgiler #bekleyen_siparis {
     height: 120px;
     width: 250px;
     background-color: #cdcdcd;
@@ -161,23 +135,22 @@ button:hover {
     border-radius: 15px;
 }
 
-.genel_bilgi_container {
+.anasayfa_main_container .content_container .genel_bilgi_container {
     display: flex;
     flex-direction: row;
     width: 1310px;
     height: 100%;
     margin: 5px;
-    background-color: #fffff;
+    background-color: #f0f0f5;
     align-items: center;
 }
-.genel_bilgi_container_2 {
+.anasayfa_main_container .content_container .genel_bilgi_container_2 {
     display: flex;
     flex-direction: row;
     width: 1310px;
     height: 100%;
     margin: 5px;
-    border-top:0.5px solid#38b000;
-    background-color: #ffffff;
+    background-color: #f0f0f5;
     align-items: center;
 }
 
@@ -202,7 +175,7 @@ button:hover {
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 }
-.thirth_box {
+ .thirth_box {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -232,6 +205,16 @@ button:hover {
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 }
+.sixth_box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 65px;
+}
 /* Sign İn Sayfası Bilgileri */ 
 .main_container_sign{
     display: flex;
@@ -246,7 +229,7 @@ button:hover {
     width: 100%;
     height: 50%;
 }
-.login_container {
+.main_container_sign .signin_container .login_container {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -257,30 +240,30 @@ button:hover {
     
 }
 
-.signin_form {
+.main_container_sign .signin_container .login_container .signin_form {
     align-items: center;   
     
 }
-.login_yazisi{
-    font-size: 25px;
+.main_container_sign .signin_container .login_container .login_yazisi{
+    font-size: 30px;
 	font-weight: bold;
 	font-family: Times New Roman;
     color: white;
 }
-.kayit_ol_yazisi{
+.main_container_sign .signin_container .login_container .kayit_ol_yazisi{
     font-size: 15px;
 	font-weight: bold;
 	font-family: 'Times New Roman', Times, serif;
     color: white;
 }
-.kayit_ol {
+.main_container_sign .signin_container .login_container .kayit_ol_yazisi .kayit_ol {
     font-size: 15px;
 	font-weight: bold;
 	font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     color: white;
 }
-.form_button {
+.main_container_sign .signin_container .login_container .signin_form .form_button {
 background-color: white;
 border-radius: 0px;
 height: 40px;
@@ -289,7 +272,7 @@ margin-right: 25px;
 box-shadow: none;
 }
 /* Sipariş.php Kodları*/
-.genel_bilgi_container_siparis {
+.anasayfa_main_container .content_container .genel_bilgi_container_siparis {
     display: flex;
     flex-direction: row;
     width: 1310px;
@@ -298,7 +281,7 @@ box-shadow: none;
     background-color: #f0f0f5;
     align-items: center;
 }
- #first_box_siparis {
+.anasayfa_main_container .content_container .genel_bilgi_container_siparis #first_box_siparis {
     display: flex;
     flex-direction: column;
     width: 850px;
@@ -312,7 +295,7 @@ box-shadow: none;
     overflow-y: none; 
 
 }
-.second_box_siparis {
+.anasayfa_main_container .content_container  .genel_bilgi_container_siparis .second_box_siparis {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -326,7 +309,7 @@ box-shadow: none;
 }
 
 /*Kesimhane.php Kodları */
-#kesimhane_first_box {
+.anasayfa_main_container .content_container .genel_bilgi_container #kesimhane_first_box {
     display: flex;
     flex-direction: column;
     width: 850px;
@@ -338,7 +321,7 @@ box-shadow: none;
     padding: 20px;
 
 }
-#kesimhane_second_box {
+.anasayfa_main_container .content_container .genel_bilgi_container_2 #kesimhane_second_box {
     display: flex;
     flex-direction: column;
     width: 950px;
@@ -350,7 +333,7 @@ box-shadow: none;
 
 }
 /*Makina Dikim Kodları*/
-.genel_bilgi_container_makina_1 {
+.anasayfa_main_container .content_container .genel_bilgi_container_makina_1 {
     display: flex;
     flex-direction: row;
     width: 1310px;
@@ -359,7 +342,7 @@ box-shadow: none;
     background-color: #f0f0f5;
     align-items: center;
 }
-.first_box_makina {
+.anasayfa_main_container .content_container .genel_bilgi_container_makina_1 .first_box_makina {
     display: flex;
     flex-direction: column;
     width: 580px;
@@ -369,7 +352,9 @@ box-shadow: none;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 
 }
-.makina_second_box {
+
+
+.anasayfa_main_container .content_container .genel_bilgi_container_makina_2 .makina_second_box {
     display: flex;
     flex-direction: column;
     width: 950px;
@@ -381,7 +366,7 @@ box-shadow: none;
 
 }
 /*Kalite Kontrol Kodları*/
-.genel_bilgi_container_kalite {
+.anasayfa_main_container .content_container .genel_bilgi_container_kalite {
     display: flex;
     flex-direction: row;
     width: 1310px;
@@ -390,7 +375,7 @@ box-shadow: none;
     background-color: #f0f0f5;
     align-items: center;
 }
-.first_box_kalite {
+.anasayfa_main_container .content_container .genel_bilgi_container_kalite .first_box_kalite {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -401,14 +386,123 @@ box-shadow: none;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 
 }
-.dropdown { 
+.anasayfa_main_container .content_container .genel_bilgi_container_kalite .first_box_kalite .dropdown { 
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 5px;
     
 }
-.ilgili_siparis {
+.anasayfa_main_container .content_container .genel_bilgi_container_kalite .first_box_kalite .ilgili_siparis {
     padding: 5px;
 }
-/*Performans Kodları*/
+/* Anasayfa CSS */
+p {
+    margin-left: 50px;
+}
+.first_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.second_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.thirth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.fourth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.fifth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 65px;
+
+}
+.sixth_box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 65px;
+}
+.box-2{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.activity-card{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.chart{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+
+#myChart_1{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_2{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_3{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_4{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_5{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+/* Anasayfa CSS */

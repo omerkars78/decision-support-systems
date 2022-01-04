@@ -14,6 +14,7 @@ include("../php/baglanti.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -248,29 +249,32 @@ include("../php/baglanti.php");
                 <img class="logo_foto" src="../img/avcitekstil.png">
 
             </div>
+            <ul>
+            <li class="anasayfa">
 
-            <button class="anasayfa">
                 <a href="anasayfa.php"><i class="fas fa-home"> </i> Anasayfa</a>
-            </button>
-            <button class="siparis">
-                <a href="kds_siparis.php"><i class="fas fa-shopping-cart"> </i> Sipariş</a>
-            </button>
-            <button class="kesimhane">
-                <a href="kds_kesimhane.php"><i class="fas fa-cut"></i>Kesimhane</a>
-            </button>
-            <button class="makine_dikim">
-                <a href="kds_makine_dikim.php"><i class="fas fa-tshirt"> </i> Makine Dikim</a>
-            </button>
-            <button class="kalite_kontrol">
-                <a href="kds_kalite_kontrol.php"><i class="fas fa-thumbs-up"> </i> Kalite Kontrol</a>
-            </button>
-            <button class="performans">
-                <a href="kds_performans.php"><i class="fas fa-chart-line"> </i> Performans</a>
-            </button>
-            <button class="oturum_kapat">
-                <a href="signin_1.php"><i class="fas fa-sign-out-alt"></i> Oturum Kapat</a>
-            </button>
+            </li>
+            <li class="siparis">
 
+                <a href="kds_siparis.php"><i class="fas fa-shopping-cart"> </i> Sipariş</a>
+            </li>
+            <li class="kesimhane">
+                <a href="kds_kesimhane.php"><i class="fas fa-cut"> </i> Kesimhane</a>
+            </li>
+            <li class="makine_dikim">
+
+                <a href="kds_makine_dikim.php"><i class="fas fa-tshirt"> </i> Makine Dikim</a>
+            </li>
+            <li class="kalite_kontrol">
+                <a href="kds_kalite_kontrol.php"><i class="fas fa-thumbs-up"> </i> Kalite Kontrol</a>
+            </li>
+            <li class="performans">
+                <a href="kds_performans.php"><i class="fas fa-chart-line"> </i> Performans</a>
+            </li>
+            <li class="oturum_kapat">
+                <a href="signin_1.php"><i class="fas fa-sign-out-alt"></i> Oturum Kapat</a>
+            </li>
+        </ul>
         </div>
         <div class="content_container">
 

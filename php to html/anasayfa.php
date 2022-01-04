@@ -20,18 +20,6 @@ include("../php/baglanti.php");
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>Anasayfa</title>
     <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
-    <style>
-     .sixth_box {
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 350px;
-    border-radius: 15px;
-    background-color: #cdcdcd;
-    box-shadow: 0.5px 0.15rem 0.25rem #000;
-    margin-left: 65px;
-}
-    </style>
 </head>
 
 <body>
@@ -42,32 +30,32 @@ include("../php/baglanti.php");
                 <img class="logo_foto" src="../img/avcitekstil.png">
 
             </div>
-
-            <button class="anasayfa">
+        <ul>
+            <li class="anasayfa">
 
                 <a href="anasayfa.php"><i class="fas fa-home"> </i> Anasayfa</a>
-            </button>
-            <button class="siparis">
+            </li>
+            <li class="siparis">
 
                 <a href="kds_siparis.php"><i class="fas fa-shopping-cart"> </i> Sipariş</a>
-            </button>
-            <button class="kesimhane">
+            </li>
+            <li class="kesimhane">
                 <a href="kds_kesimhane.php"><i class="fas fa-cut"> </i> Kesimhane</a>
-            </button>
-            <button class="makine_dikim">
+            </li>
+            <li class="makine_dikim">
 
                 <a href="kds_makine_dikim.php"><i class="fas fa-tshirt"> </i> Makine Dikim</a>
-            </button>
-            <button class="kalite_kontrol">
+            </li>
+            <li class="kalite_kontrol">
                 <a href="kds_kalite_kontrol.php"><i class="fas fa-thumbs-up"> </i> Kalite Kontrol</a>
-            </button>
-            <button class="performans">
+            </li>
+            <li class="performans">
                 <a href="kds_performans.php"><i class="fas fa-chart-line"> </i> Performans</a>
-            </button>
-            <button class="oturum_kapat">
+            </li>
+            <li class="oturum_kapat">
                 <a href="signin_1.php"><i class="fas fa-sign-out-alt"></i> Oturum Kapat</a>
-            </button>
-
+            </li>
+        </ul>
         </div>
 
         <div class="content_container">
