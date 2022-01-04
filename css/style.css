@@ -154,7 +154,7 @@ button:hover {
     align-items: center;
 }
 
-.anasayfa_main_container .content_container .genel_bilgi_container #first_box {
+.first_box {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -165,7 +165,7 @@ button:hover {
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 
 }
-.anasayfa_main_container .content_container .genel_bilgi_container #second_box {
+.second_box {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -175,7 +175,7 @@ button:hover {
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 }
-.anasayfa_main_container .content_container .genel_bilgi_container #thirth_box {
+ .thirth_box {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -185,7 +185,7 @@ button:hover {
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 }
-.anasayfa_main_container .content_container .genel_bilgi_container_2 #fourth_box {
+.fourth_box {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -195,7 +195,7 @@ button:hover {
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
 }
-.anasayfa_main_container .content_container .genel_bilgi_container_2 #fifth_box {
+.fifth_box {
     display: flex;
     flex-direction: column;
     width: 350px;
@@ -204,6 +204,16 @@ button:hover {
     margin-left: 50px;
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.sixth_box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 65px;
 }
 /* Sign İn Sayfası Bilgileri */ 
 .main_container_sign{
@@ -386,4 +396,113 @@ box-shadow: none;
 .anasayfa_main_container .content_container .genel_bilgi_container_kalite .first_box_kalite .ilgili_siparis {
     padding: 5px;
 }
-/*Performans Kodları*/
+/* Anasayfa CSS */
+p {
+    margin-left: 50px;
+}
+.first_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.second_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.thirth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.fourth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    margin-left: 75px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+}
+.fifth_box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 65px;
+
+}
+.sixth_box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 65px;
+}
+.box-2{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.activity-card{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.chart{
+    display: flex;
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+
+#myChart_1{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_2{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_3{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_4{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+#myChart_5{
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+/* Anasayfa CSS */

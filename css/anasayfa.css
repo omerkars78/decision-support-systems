@@ -49,8 +49,8 @@ p {
     border-radius: 15px;
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
-    margin-left: 80px;
-    margin-right: 320px;
+    margin-left: 75px;
+    margin-right: 10px;
 }
 .sixth_box {
     display: flex;
@@ -58,9 +58,9 @@ p {
     width: 350px;
     height: 350px;
     border-radius: 15px;
-    margin-left: 75px;
     background-color: #cdcdcd;
     box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 75px;
 }
 .box-2{
     display: flex;

@@ -21,38 +21,16 @@ include("../php/baglanti.php");
     <title>Anasayfa</title>
     <script src="https://kit.fontawesome.com/6057c2ec97.js" crossorigin="anonymous"></script>
     <style>
-        .fourth_box{
-            display: flex;
-            flex-direction: column;
-            width: 350px;
-            height: 350px;
-            border-radius: 15px;
-            margin-left: 75px;
-            background-color: #cdcdcd;
-            box-shadow: 0.5px 0.15rem 0.25rem #000;
-        }
-        .fifth_box {
-            display: flex;
-            flex-direction: column;
-            width: 350px;
-            height: 350px;
-            border-radius: 15px;
-            background-color: #cdcdcd;
-            box-shadow: 0.5px 0.15rem 0.25rem #000;
-            /* margin-left: 80px; */
-            /* margin-right: 320px; */
-        }
-
-        .sixth_box {
-            display: flex;
-            flex-direction: column;
-            width: 350px;
-            height: 350px;
-            border-radius: 15px;
-            /* margin-left: 75px; */
-            background-color: #cdcdcd;
-            box-shadow: 0.5px 0.15rem 0.25rem #000;
-        }
+     .sixth_box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #cdcdcd;
+    box-shadow: 0.5px 0.15rem 0.25rem #000;
+    margin-left: 65px;
+}
     </style>
 </head>
 
@@ -297,7 +275,44 @@ include("../php/baglanti.php");
 
                 </div>
                 <div class="sixth_box">
+                <div class="ariza_turu_title">
+                        <p>Arıza Türleri Ve 6 Aylık Sayıları</p>
+                    </div>
+                    <div class="box-2">
+                        <div class="activity-card">
 
+                            <div class="chart">
+                                <canvas id="myChart_6"></canvas>
+                                <?php
+
+                                include("../php/baglanti.php");
+                                ?>
+                            </div>
+                            <?php
+                            $arizalar = [];
+                            $sql = "SELECT ariza.ariza_turu, COUNT(ariza.ariza_turu) as ariza_sikligi
+                            FROM makina , ariza 
+                            WHERE makina.makina_id = ariza.makina_id 
+                            GROUP BY ariza.ariza_turu;";
+                            $result = $con->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    $arizalar[$row["ariza_turu"]] += $row["ariza_sikligi"];
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            $con->close();
+
+
+                            ?>
+
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
 
@@ -494,6 +509,45 @@ include("../php/baglanti.php");
 
         const ctx_5 = document.getElementById('myChart_5');
         const myChart_5 = new Chart(ctx_5, config_5);
+
+        // Makinaların Arıza Sıklığı 6 Aylık
+        const data_6 = {
+                                labels: [
+                                    <?php
+                                    foreach ($ariza_sayisi as $key => $value) {
+                                        echo "'" . $key . "',";
+                                    }
+                                    ?>
+                                ],
+                                datasets: [{
+                                    label: 'Arıza Sıklık Grafiği',
+                                    data: [
+                                        <?php
+                                        foreach ($ariza_sayisi as $key => $value) {
+                                            echo $value . ",";
+                                        }
+                                        ?>
+
+                                    ],
+                                    backgroundColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(255, 205, 21)',
+                                        'rgb(210, 0, 120)',
+                                        'rgb(210, 98, 120)',
+                                    ],
+                                    hoverOffset: 4
+                                }]
+                            };
+
+                            const config_6 = {
+                                type: 'pie',
+                                data: data_6,
+                            };
+
+
+                            const ctx_6 = document.getElementById('myChart_6');
+                            const myChart_6 = new Chart(ctx_6, config_6);
     </script>
 </body>
 
