@@ -15,7 +15,52 @@ error_reporting(0);
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <style>
+        .fourth_box{
+            background-color: #ffffff;
+        }
       
+      table{
+        width:590px;
+        
+    }
+    th{
+        padding:10px;
+        text-align:center;
+        margin-bottom:5px;
+        }
+
+    .performans_first_box p {
+        color: black;
+        margin: 1rem;
+    }
+
+    .performans_first_box  table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .performans_first_box thead {
+        background: #efefef;
+        text-align: left;
+    }
+    .third_box p {
+        color: black;
+        margin: 1rem;
+    }
+
+    .third_box  table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .third_box thead {
+        background: #efefef;
+        text-align: left;
+    }
+
+    td {
+        padding: 0.2rem;
+    }
 
         .chart #myChart {
             width: 800px;
@@ -136,10 +181,12 @@ error_reporting(0);
         #hesapla_buton {
             width: 305px;
             height: 40px;
+            background-color: lightgreen;
         }
         #hesapla_buton_1 {
             width: 305px;
             height: 40px;
+            background-color: lightgreen;
         }
 
         #sonuc_yaz,
@@ -359,7 +406,6 @@ error_reporting(0);
                             <th>6 Aylık Toplam Operasyon Sayısı</th>
                             <th>Genel 6 Aylık Ortalama</th>
                             <th>Genel Performans Değerlendirmesi</th>
-
 
                         </tr>
                         </thead>

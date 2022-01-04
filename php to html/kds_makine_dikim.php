@@ -22,18 +22,19 @@ include("../php/baglanti.php");
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<style>
-    table{
-        width:590px;
-        
-    }
-    th{
-        padding:10px;
-        text-align:center;
-        margin-bottom:5px;
-        }
+    <style>
+    table {
+        width: 590px;
 
-    .first_box_makina  h3 {
+    }
+
+    th {
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .first_box_makina h3 {
         color: black;
         margin: 1rem;
     }
@@ -48,10 +49,25 @@ include("../php/baglanti.php");
         text-align: left;
     }
 
+    .second_box_makina h3 {
+        color: black;
+        margin: 1rem;
+    }
+
+    .second_box_makina table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .second_box_makina thead {
+        background: #efefef;
+        text-align: left;
+    }
+
     td {
         padding: 0.2rem;
     }
-  
+
     .genel_bilgi_container_makina_1 {
         display: flex;
         flex-direction: row;
@@ -108,7 +124,7 @@ include("../php/baglanti.php");
         height: 600px;
         border-radius: 15px;
         margin-left: 320px;
-        background-color: #cdcdcd;
+        background-color: white;
         box-shadow: 0.5px 0.15rem 0.25rem #000;
 
     }
@@ -135,23 +151,19 @@ include("../php/baglanti.php");
         height: 350px;
         margin-left: 10px;
         border-radius: 15px;
-
-        background-color: #cdcdcd;
+        background-color: white;
         box-shadow: 0.5px 0.15rem 0.25rem #000;
         /* overflow-y: scroll; */
 
     }
 
 
-    .thirth_box_makina {
-        display: flex;
-        flex-direction: column;
-        width: 550px;
-        height: 350px;
-        border-radius: 15px;
-        background-color: #cdcdcd;
-        box-shadow: 0.5px 0.15rem 0.25rem #000;
 
+    #thirth_box_makina {
+        background-color: white;
+        height: 320px;
+        border-radius: 15px;
+        box-shadow: 0.5px 0.15rem 0.25rem #000;
     }
 
     .makina_bilgileri {
@@ -228,6 +240,7 @@ include("../php/baglanti.php");
     #hesapla_buton {
         width: 305px;
         height: 40px;
+        background-color: lightgreen;
     }
 
     #sonuc_yaz {
@@ -251,12 +264,12 @@ include("../php/baglanti.php");
         height: 550px;
         border-radius: 15px;
         margin-left: 120px;
-        background-color: #cdcdcd;
+        background-color: white;
         box-shadow: 0.5px 0.15rem 0.25rem #000;
 
     }
-</style>
-<script>
+    </style>
+    <script>
     window.onload = function(e) {
 
         var y1 = document.getElementById("y1");
@@ -277,7 +290,7 @@ include("../php/baglanti.php");
 
         }
     }
-</script>
+    </script>
 
     <title>Makina Dikim</title>
 </head>
@@ -330,16 +343,16 @@ include("../php/baglanti.php");
 
                 <div class="bir">
                     <div class="first_box_makina" style="margin-left:30px;width:590px;">
-                        
-                            <p id="makina_igne_bilgileri">Makina İğne Bilgileri</p>
+
+                        <p id="makina_igne_bilgileri">Makina İğne Bilgileri</p>
                         <table cellspacing="0" cellpadding="0" bordercolor="black" border="1">
                             <thead>
-                            <tr>
-                                <th>Makina ID</th>
-                                <th>Makina Türü</th>
-                                <th>İğne Türü </th>
-                                <th>İğne Boyutu</th>
-                            </tr>
+                                <tr>
+                                    <th>Makina ID</th>
+                                    <th>Makina Türü</th>
+                                    <th>İğne Türü </th>
+                                    <th>İğne Boyutu</th>
+                                </tr>
                             </thead>
                             <?php
                             include("../php/baglanti.php");
@@ -383,14 +396,15 @@ include("../php/baglanti.php");
                         <p id="makina_igne_bilgileri">6 Aylık Makina Arıza Bilgileri</p>
                     </div>
                     <table id="ariza" bordercolor="black" border="1">
-                        <tr>
-                            <th>Makina ID</th>
-                            <th>Makina Türü</th>
-                            <th>Arıza Türü </th>
-                            <th>Ortalama Arıza Süresi(dk)</th>
-                            <th>Arıza Sıklığı</th>
-                        </tr>
-
+                        <thead>
+                            <tr>
+                                <th>Makina ID</th>
+                                <th>Makina Türü</th>
+                                <th>Arıza Türü </th>
+                                <th>Ortalama Arıza Süresi(dk)</th>
+                                <th>Arıza Sıklığı</th>
+                            </tr>
+                        </thead>
                         <?php
                         include("../php/baglanti.php");
 
