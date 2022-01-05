@@ -49,16 +49,16 @@
 
     </div>
     
-    <form id="survey-form" method="post" name="login" action="">
+    <form id="survey-form" method="post" name="login" action="" style="margin-top: 100px;">
         <div class="oturum_ac">
-            <p class="oturum_ac_text">Oturum Aç</p>
+            <p class="oturum_ac_text" style="font-family: 'Times New Roman'; margin-left:150px; padding-top:50px; margin-bottom:50px;">Oturum Aç</p>
         </div>
       <div id="form-group">
-        <label id="email-label" for="email">Kullanıcı Adı: </label>
-      <input class="form-control" type="text" name="email" id="email" required placeholder="Kullanıcı Adınızı Giriniz">
+        <label id="email-label" for="email" style="font-family: 'Times New Roman'; font-size:20px;">Kullanıcı Adı: </label>
+      <input class="form-control" type="text" name="email" id="email" required placeholder="Kullanıcı Adınızı Giriniz" >
       </div>
       <div id="form-group">
-        <label id="password-label" for="password">Şifre: </label>
+        <label id="password-label" for="password" style="font-family: 'Times New Roman'; font-size:20px;">Şifre: </label>
       <input class="form-control" type="password" name="password" id="password" required placeholder="Şifrenizi Giriniz">
       </div>
      

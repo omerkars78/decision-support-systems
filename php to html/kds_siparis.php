@@ -96,8 +96,10 @@ include("../php/baglanti.php");
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin-left: 220px;
+    margin-left: 200px;
+    font-weight: 800;
 }
+
     </style>
 </head>
 
